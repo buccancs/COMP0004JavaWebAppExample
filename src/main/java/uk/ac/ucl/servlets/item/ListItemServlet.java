@@ -1,6 +1,5 @@
 package uk.ac.ucl.servlets.item;
 
-import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;

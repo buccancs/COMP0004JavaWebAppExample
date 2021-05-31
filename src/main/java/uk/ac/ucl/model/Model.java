@@ -4,7 +4,8 @@ import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Model {
     // The example code in this class should be replaced by your Model class code.
@@ -14,53 +15,52 @@ public class Model {
 
     private List<Dataframe> dataframes;
 
-    public Model(){
+    public Model() {
         this.setListDataframe(new ArrayList<Dataframe>());
         createDummyModel();
     }
 
 
-    public Model create(){
+    public Model create() {
         Model model = new Model();
         this.setListDataframe(new ArrayList<Dataframe>());
 
         return model;
     }
 
-    public Model create(List<Dataframe> listDataframe){
+    public Model create(List<Dataframe> listDataframe) {
         Model model = new Model();
         model.setListDataframe(listDataframe);
 
         return model;
     }
 
-    public void setListDataframe(List<Dataframe> listDataframe){
-        this.dataframes = listDataframe;
-    }
-
     public void addDataframe(Dataframe dataframe) {
         this.dataframes.add(dataframe);
     }
 
-    public void addListDataframe(List<Dataframe> dataframes){
+    public void addListDataframe(List<Dataframe> dataframes) {
         this.dataframes = dataframes;
+    }
+
+    public List<Dataframe> getListDataframe() {
+        return dataframes;
     }
 
 //    public void setListDataframe() {
 //        this.listDataframe = ReadFromFile();
 //    }
 
-    public List<Dataframe> getListDataframe() {
-        return dataframes;
+    public void setListDataframe(List<Dataframe> listDataframe) {
+        this.dataframes = listDataframe;
     }
 
     public Dataframe getDataframeById(int dataframeId) throws Exception {
-        if (this.dataframes == null){
+        if (this.dataframes == null) {
             throw new Exception("List of dataframes is empty.");
-        }
-        else {
-            for (Dataframe dataframe : this.dataframes){
-                if (dataframe.getDataframeId() == dataframeId){
+        } else {
+            for (Dataframe dataframe : this.dataframes) {
+                if (dataframe.getDataframeId() == dataframeId) {
                     return dataframe;
                 }
             }
@@ -71,10 +71,9 @@ public class Model {
     public List<Integer> getDataframeIds() throws Exception {
         List<Integer> iDList = new ArrayList<Integer>();
 
-        if (this.dataframes == null){
+        if (this.dataframes == null) {
             throw new Exception("List of dataframes is empty.");
-        }
-        else {
+        } else {
             for (Dataframe dataframe : this.dataframes) {
                 iDList.add(dataframe.getDataframeId());
             }
@@ -85,10 +84,9 @@ public class Model {
     public List<String> getDataframeLabels() throws Exception {
         List<String> labelList = new ArrayList<String>();
 
-        if (this.dataframes == null){
+        if (this.dataframes == null) {
             throw new Exception("List of dataframes is empty.");
-        }
-        else {
+        } else {
             for (Dataframe dataframe : this.dataframes) {
                 labelList.add(dataframe.getLabel());
             }
@@ -96,7 +94,7 @@ public class Model {
         }
     }
 
-    public void removeDataframeById(int dataframeId){
+    public void removeDataframeById(int dataframeId) {
         this.getListDataframe().removeIf(dataframe -> dataframe.getDataframeId() == dataframeId);
     }
 

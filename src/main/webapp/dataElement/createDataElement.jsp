@@ -42,7 +42,8 @@
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
-            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%>
+            </option>
             <%
                 }
             %>
@@ -51,19 +52,21 @@
         <select name="parentItemId" id="parentItemId">
             <%
                 for (Dataframe dataframe : dataframes) {
-                    for (Item item: dataframe.getItems()){
+                    for (Item item : dataframe.getItems()) {
             %>
-            <option value=<%=item.getItemId()%>><%=item.getItemId()%></option>
+            <option value=<%=item.getItemId()%>><%=item.getItemId()%>
+            </option>
             <%
-                }  }
+                    }
+                }
             %>
         </select><br>
         <label for="dataId">dataId:</label><br>
-        <input type="text" id="dataId" name="dataId" required="required" /><br>
+        <input type="text" id="dataId" name="dataId" required="required"/><br>
         <label for="dataType">dataType:</label><br>
-        <input type="text" id="dataType" name="dataType" required="required" /><br>
+        <input type="text" id="dataType" name="dataType" required="required"/><br>
         <label for="data">data:</label><br>
-        <input type="text" id="data" name="data" required="required" /><br>
+        <input type="text" id="data" name="data" required="required"/><br>
         <div class="form-actions"><br>
             <button type="submit">Create</button>
             <button type="button" onclick="history.go(-1)">Cancel</button>

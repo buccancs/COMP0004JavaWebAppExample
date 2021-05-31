@@ -7,7 +7,7 @@ public class DataElement {
     private String dataType;
     private String data;
 
-    public static DataElement create(int dataId, int parentItemId, int parentDataframeId, String dataType, String data){
+    public static DataElement create(int dataId, int parentItemId, int parentDataframeId, String dataType, String data) {
         DataElement dataElement = new DataElement();
         dataElement.setDataId(dataId);
         dataElement.setParentItemId(parentItemId);
@@ -18,48 +18,48 @@ public class DataElement {
         return dataElement;
     }
 
-    public void update(String data){
+    public void update(String data) {
         this.data = data;
+    }
+
+    public int getDataId() {
+        return this.dataId;
     }
 
     public void setDataId(int dataId) {
         this.dataId = dataId;
     }
 
-    public int getDataId(){
-        return this.dataId;
+    public int getParentItemId() {
+        return parentItemId;
     }
 
     public void setParentItemId(int parentItemId) {
         this.parentItemId = parentItemId;
     }
 
-    public int getParentItemId() {
-        return parentItemId;
+    public int getParentDataframeId() {
+        return parentDataframeId;
     }
 
     public void setParentDataframeId(int parentDataframeId) {
         this.parentDataframeId = parentDataframeId;
     }
 
-    public int getParentDataframeId() {
-        return parentDataframeId;
+    public String getDataType() {
+        return this.dataType;
     }
 
     public void setDataType(String dataType) {
         this.dataType = dataType;
     }
 
-    public String getDataType(){
-        return this.dataType;
+    public String getData() {
+        return this.data;
     }
 
     public void setData(String data) {
         this.data = data;
-    }
-
-    public String getData(){
-        return this.data;
     }
 
 //    @Override

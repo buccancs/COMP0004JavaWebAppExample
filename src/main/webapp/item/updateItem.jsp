@@ -41,20 +41,23 @@
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
-            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%>
+            </option>
             <%
                 }
             %>
         </select><br>
 
-        <input type="hidden" id="itemId" name="itemId" value=<%=request.getAttribute("updateItemId")%> required="required" />
-        <input type="hidden" id="parentId" name="parentId" value=<%=request.getAttribute("updateItemParentId")%> required="required" />
+        <input type="hidden" id="itemId" name="itemId"
+               value=<%=request.getAttribute("updateItemId")%> required="required"/>
+        <input type="hidden" id="parentId" name="parentId"
+               value=<%=request.getAttribute("updateItemParentId")%> required="required"/>
         <label for="label">label:</label><br>
-        <input type="text" id="label" name="label" required="required" /><br>
+        <input type="text" id="label" name="label" required="required"/><br>
         <label for="description">description:</label><br>
-        <input type="text" id="description" name="description" required="required" /><br>
+        <input type="text" id="description" name="description" required="required"/><br>
         <label for="group">group:</label><br>
-        <input type="text" id="group" name="group" required="required" /><br>
+        <input type="text" id="group" name="group" required="required"/><br>
         <div class="form-actions"><br>
             <button type="submit">Create</button>
             <button type="button" onclick="history.go(-1)">Cancel</button>

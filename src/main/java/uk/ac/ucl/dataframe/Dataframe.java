@@ -1,6 +1,7 @@
 package uk.ac.ucl.dataframe;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Dataframe {
     private int dataframeId;
@@ -9,7 +10,7 @@ public class Dataframe {
     private List<String> tags;
     private List<Item> items;
 
-    public static Dataframe create(int dataFrameId, String label, String description){
+    public static Dataframe create(int dataFrameId, String label, String description) {
         Dataframe dataframe = new Dataframe();
         dataframe.setDataframeId(dataFrameId);
         dataframe.setLabel(label);
@@ -20,28 +21,28 @@ public class Dataframe {
         return dataframe;
     }
 
-    public void setDataframeId(int dataframeId) {
-        this.dataframeId = dataframeId;
-    }
-
     public int getDataframeId() {
         return dataframeId;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setDataframeId(int dataframeId) {
+        this.dataframeId = dataframeId;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setTags(List<String> tags) {
@@ -67,10 +68,6 @@ public class Dataframe {
         this.items.add(item);
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
     public List<Item> getItems() {
         if (this.items == null) {
             setItems(new ArrayList<Item>());
@@ -78,13 +75,16 @@ public class Dataframe {
         return items;
     }
 
-    public Item getItemById(int itemId) throws Exception{
-        if (this.items == null){
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public Item getItemById(int itemId) throws Exception {
+        if (this.items == null) {
             throw new Exception("List of items is empty.");
-        }
-        else {
-            for (Item item : this.items){
-                if (item.getItemId() == itemId){
+        } else {
+            for (Item item : this.items) {
+                if (item.getItemId() == itemId) {
                     return item;
                 }
             }

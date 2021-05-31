@@ -2,7 +2,6 @@ package uk.ac.ucl.servlets.dataElement;
 
 import uk.ac.ucl.dataframe.DataElement;
 import uk.ac.ucl.dataframe.Dataframe;
-import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
 
@@ -46,7 +45,7 @@ public class CreateDataElementServlet extends HttpServlet {
         try {
             DataElement dataElement = DataElement.create(dataId, parentItemID, parentDataframeId, dataType, data);
             model.getDataframeById(parentDataframeId).getItemById(parentItemID).addDataElement(dataElement);
-            List<DataElement> dataElements =  model.getDataframeById(parentDataframeId).getItemById(parentItemID).getDataElements();
+            List<DataElement> dataElements = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getDataElements();
             request.setAttribute("dataElements", dataElements);
             request.getRequestDispatcher("/dataElements").forward(request, response);
         } catch (Exception e) {

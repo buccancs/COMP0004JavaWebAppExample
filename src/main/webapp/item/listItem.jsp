@@ -50,28 +50,38 @@
     %>
 
     <tr>
-        <td><%=item.getItemId()%></td>
-        <td><%=item.getParentId()%></td>
-        <td><%=item.getLabel()%></td>
-        <td><%=item.getDescription()%></td>
+        <td><%=item.getItemId()%>
+        </td>
+        <td><%=item.getParentId()%>
+        </td>
+        <td><%=item.getLabel()%>
+        </td>
+        <td><%=item.getDescription()%>
+        </td>
         <td>
             <form id="requestItemsForm" action="${pageContext.request.contextPath}/dataElements" method="get">
-                <input type="hidden" id="parentItemId" name="parentItemId" value=<%=item.getItemId()%> required="required" />
-                <input type="hidden" id="parentDataframeId" name="parentDataframeId" value=<%=item.getParentId()%> required="required" />
+                <input type="hidden" id="parentItemId" name="parentItemId"
+                       value=<%=item.getItemId()%> required="required"/>
+                <input type="hidden" id="parentDataframeId" name="parentDataframeId"
+                       value=<%=item.getParentId()%> required="required"/>
                 <button type="submit">Items</button>
             </form>
         </td>
         <td>
             <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="get">
-                <input type="hidden" id="updateItemId" name="updateItemId" value=<%=item.getItemId()%> required="required" />
-                <input type="hidden" id="updateItemParentId" name="updateItemParentId" value=<%=item.getParentId()%> required="required" />
+                <input type="hidden" id="updateItemId" name="updateItemId"
+                       value=<%=item.getItemId()%> required="required"/>
+                <input type="hidden" id="updateItemParentId" name="updateItemParentId"
+                       value=<%=item.getParentId()%> required="required"/>
                 <button type="submit">Update</button>
             </form>
         </td>
         <td>
             <form id="deleteItemForm" action="${pageContext.request.contextPath}/item/delete" method="post">
-                <input type="hidden" id="deleteItemId" name="deleteItemId" value=<%=item.getItemId()%> required="required" />
-                <input type="hidden" id="deleteItemParentId" name="deleteItemParentId" value=<%=item.getParentId()%> required="required" />
+                <input type="hidden" id="deleteItemId" name="deleteItemId"
+                       value=<%=item.getItemId()%> required="required"/>
+                <input type="hidden" id="deleteItemParentId" name="deleteItemParentId"
+                       value=<%=item.getParentId()%> required="required"/>
                 <button type="submit">Delete</button>
             </form>
         </td>

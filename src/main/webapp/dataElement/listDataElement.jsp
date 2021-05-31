@@ -49,22 +49,31 @@
     %>
 
     <tr>
-        <td><%=dataElement.getDataId()%></td>
-        <td><%=dataElement.getDataType()%></td>
-        <td><%=dataElement.getData()%></td>
+        <td><%=dataElement.getDataId()%>
+        </td>
+        <td><%=dataElement.getDataType()%>
+        </td>
+        <td><%=dataElement.getData()%>
+        </td>
         <td>
             <form id="updateItemForm" action="${pageContext.request.contextPath}/dataElement/update" method="get">
-                <input type="hidden" id="updateDataElementId" name="updateDataElementId" value=<%=dataElement.getDataId()%> required="required" />
-                <input type="hidden" id="updateParentItemId" name="updateParentItemId" value=<%=dataElement.getParentItemId()%> required="required" />
-                <input type="hidden" id="updateParentDataframeId" name="updateParentDataframeId" value=<%=dataElement.getParentDataframeId()%> required="required" />
+                <input type="hidden" id="updateDataElementId" name="updateDataElementId"
+                       value=<%=dataElement.getDataId()%> required="required"/>
+                <input type="hidden" id="updateParentItemId" name="updateParentItemId"
+                       value=<%=dataElement.getParentItemId()%> required="required"/>
+                <input type="hidden" id="updateParentDataframeId" name="updateParentDataframeId"
+                       value=<%=dataElement.getParentDataframeId()%> required="required"/>
                 <button type="submit">Update</button>
             </form>
         </td>
         <td>
             <form id="deleteItemForm" action="${pageContext.request.contextPath}/dataElement/delete" method="post">
-                <input type="hidden" id="deleteDataElementId" name="deleteDataElementId" value=<%=dataElement.getDataId()%> required="required" />
-                <input type="hidden" id="deleteParentItemId" name="deleteParentItemId" value=<%=dataElement.getParentItemId()%> required="required" />
-                <input type="hidden" id="deleteParentDataframeId" name="deleteParentDataframeId" value=<%=dataElement.getParentDataframeId()%> required="required" />
+                <input type="hidden" id="deleteDataElementId" name="deleteDataElementId"
+                       value=<%=dataElement.getDataId()%> required="required"/>
+                <input type="hidden" id="deleteParentItemId" name="deleteParentItemId"
+                       value=<%=dataElement.getParentItemId()%> required="required"/>
+                <input type="hidden" id="deleteParentDataframeId" name="deleteParentDataframeId"
+                       value=<%=dataElement.getParentDataframeId()%> required="required"/>
                 <button type="submit">Delete</button>
             </form>
         </td>

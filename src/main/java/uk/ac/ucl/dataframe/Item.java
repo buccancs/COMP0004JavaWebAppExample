@@ -1,6 +1,7 @@
 package uk.ac.ucl.dataframe;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Item {
     private int itemId;
@@ -23,44 +24,44 @@ public class Item {
         return item;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
-    }
-
     public int getItemId() {
         return itemId;
     }
 
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public int getParentId() {
         return parentId;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getGroup() {
         return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public void setTags(List<String> tags) {
@@ -75,10 +76,6 @@ public class Item {
 
     public void removeTag(String tag) {
         tags.remove(tag);
-    }
-
-    public void setDataElements(List<DataElement> dataElements) {
-        this.dataElements = dataElements;
     }
 
     public void addDataElement(DataElement dataElement) {
@@ -96,13 +93,16 @@ public class Item {
         return dataElements;
     }
 
+    public void setDataElements(List<DataElement> dataElements) {
+        this.dataElements = dataElements;
+    }
+
     public DataElement getDataElementById(int dataId) throws Exception {
-        if (this.dataElements == null){
+        if (this.dataElements == null) {
             throw new Exception("List of data elements is empty.");
-        }
-        else {
-            for (DataElement dataElement : this.dataElements){
-                if (dataElement.getDataId() == dataId){
+        } else {
+            for (DataElement dataElement : this.dataElements) {
+                if (dataElement.getDataId() == dataId) {
                     return dataElement;
                 }
             }

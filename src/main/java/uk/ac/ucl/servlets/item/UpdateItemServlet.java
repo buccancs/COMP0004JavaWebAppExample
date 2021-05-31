@@ -54,8 +54,7 @@ public class UpdateItemServlet extends HttpServlet {
                 item.setDescription(description);
                 item.setGroup(group);
 
-            }
-            else{
+            } else {
                 model.getDataframeById(parentId).removeItem(itemId);
                 model.getDataframeById(newParentId).addItem(itemId, newParentId, label, description, group);
             }

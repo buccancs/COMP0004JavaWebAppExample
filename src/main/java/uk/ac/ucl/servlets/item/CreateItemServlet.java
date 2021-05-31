@@ -45,7 +45,7 @@ public class CreateItemServlet extends HttpServlet {
         try {
             Item item = Item.createAsItem(itemId, parentId, label, description, group);
             model.getDataframeById(parentId).addItem(item);
-            List<Item> items =  model.getDataframeById(parentId).getItems();
+            List<Item> items = model.getDataframeById(parentId).getItems();
             request.setAttribute("items", items);
             request.getRequestDispatcher("/items").forward(request, response);
         } catch (Exception e) {

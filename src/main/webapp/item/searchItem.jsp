@@ -36,13 +36,20 @@
                     <c:forEach items="${requestScope.todoList}" var="currentTodo">
                         <tr>
                             <td>${currentTodo.id}</td>
-                            <td><tl:highlight pattern="${param.title}" cssClass="label label-warning">${currentTodo.title}</tl:highlight></td>
+                            <td><tl:highlight pattern="${param.title}"
+                                              cssClass="label label-warning">${currentTodo.title}</tl:highlight></td>
                             <td><fmt:formatDate value="${currentTodo.dueDate}" pattern="dd/MM/yyyy"/></td>
-                            <td><i class="icon-circle-arrow-<tl:priorityIcon priority="${currentTodo.priority}"/>"></i> ${currentTodo.priority}</td>
-                            <td><span class="label <tl:statusStyle status="${currentTodo.done}"/> "> <tl:statusLabel status="${currentTodo.done}"/></span></td>
                             <td>
-                                <a class="btn btn-mini btn-primary" href="/todos/update?todoId=${currentTodo.id}"><i class="icon-edit icon-white"></i> Edit</a>
-                                <a class="btn btn-mini btn-danger" data-toggle="modal" href="#confirm_delete_${currentTodo.id}"><i class="icon-remove icon-white"></i> Delete</a>
+                                <i class="icon-circle-arrow-<tl:priorityIcon priority="${currentTodo.priority}"/>"></i> ${currentTodo.priority}
+                            </td>
+                            <td><span class="label <tl:statusStyle status="${currentTodo.done}"/> "> <tl:statusLabel
+                                    status="${currentTodo.done}"/></span></td>
+                            <td>
+                                <a class="btn btn-mini btn-primary" href="/todos/update?todoId=${currentTodo.id}"><i
+                                        class="icon-edit icon-white"></i> Edit</a>
+                                <a class="btn btn-mini btn-danger" data-toggle="modal"
+                                   href="#confirm_delete_${currentTodo.id}"><i class="icon-remove icon-white"></i>
+                                    Delete</a>
                                 <div class="modal hide" id="confirm_delete_${currentTodo.id}">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">×</button>
@@ -54,7 +61,8 @@
                                     <div class="modal-footer">
                                         <form action="/todos/delete.do" method="post">
                                             <input type="hidden" name="todoId" value="${currentTodo.id}">
-                                            <a href="#" class="btn" data-dismiss="modal">Cancel</a> <button type="submit" class="btn btn-primary">Confirm</button>
+                                            <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+                                            <button type="submit" class="btn btn-primary">Confirm</button>
                                         </form>
                                     </div>
                                 </div>
