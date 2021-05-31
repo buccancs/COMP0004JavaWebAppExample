@@ -17,6 +17,7 @@
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/dataElement/new">Create New DataElement</a></li>
+        <li><a href="${pageContext.request.contextPath}/dataElement/search">Search in all Dataframes</a></li>
     </ul>
 </div>
 <div class="main">
