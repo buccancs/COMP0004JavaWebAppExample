@@ -74,7 +74,7 @@
                     </form>
                 </td>
                 <td>
-                    <form id="deleteDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="get">
+                    <form id="deleteDataframeForm" action="${pageContext.request.contextPath}/dataframe/delete" method="post">
                         <input type="hidden" id="deleteDataframeId" name="deleteDataframeId" value=<%=dataframe.getDataFrameId()%> required="required" />
                         <button type="submit">Delete</button>
                     </form>

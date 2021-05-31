@@ -97,6 +97,10 @@ public class Model {
         }
     }
 
+    public void removeDataframeById(int dataframeId){
+        this.getListDataframe().removeIf(dataframe -> dataframe.getDataFrameId() == dataframeId);
+    }
+
     public void createDummyModel() {
         Item dummyItem = Item.createAsItem(690, 6900, "dummy item", "description of dummy item", "dummy group");
         dummyItem.addDataElement(69, "URL", "www.google.hu");
