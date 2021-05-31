@@ -19,6 +19,12 @@ import java.util.List;
 public class SearchItemServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("searchItem.jsp").forward(request, response);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Model model = ModelFactory.getModel();
@@ -33,7 +39,7 @@ public class SearchItemServlet extends HttpServlet {
                 }
             }
         }
-        request.setAttribute("allMatchingItems", allMatchingItems);
+        request.setAttribute("items", allMatchingItems);
         request.getRequestDispatcher("/items").forward(request, response);
     }
 }
