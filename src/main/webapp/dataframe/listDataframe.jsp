@@ -61,15 +61,28 @@
                 <td><%=dataframe.getDataFrameId()%></td>
                 <td><%=dataframe.getLabel()%></td>
                 <td><%=dataframe.getDescription()%></td>
-                <td><a href="${pageContext.request.contextPath}/items?dataframeId=<%=dataframe.getDataFrameId()%>"> Items</a></td>
-                <td><a href="${pageContext.request.contextPath}/dataframe/update?dataframeId=<%=dataframe.getDataFrameId()%>"> Update</a></td>
-                <td><a href="${pageContext.request.contextPath}/dataframe/delete?dataframeId=<%=dataframe.getDataFrameId()%>"> Delete</a></td>
+                <td>
+                    <form id="requestItemsForm" action="${pageContext.request.contextPath}/items" method="post">
+                        <input type="hidden" id="requestItemsDataframeId" name="requestItemsDataframeId" value=<%=dataframe.getDataFrameId()%> required="required" />
+                        <button type="submit">Items</button>
+                    </form>
+                </td>
+                <td>
+                    <form id="updateDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="get">
+                        <input type="hidden" id="updateDataframeId" name="updateDataframeId" value=<%=dataframe.getDataFrameId()%> required="required" />
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form id="deleteDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="get">
+                        <input type="hidden" id="deleteDataframeId" name="deleteDataframeId" value=<%=dataframe.getDataFrameId()%> required="required" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
-
             <%
                 }
             %>
-
             </tbody>
         </table>
     </body>

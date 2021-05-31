@@ -23,9 +23,11 @@ public class UpdateDataframeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Model model = ModelFactory.getModel();
+        int dataframeId = Integer.parseInt(request.getParameter("updateDataframeId"));
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
+            request.setAttribute("dataframeId", dataframeId);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
@@ -53,7 +55,7 @@ public class UpdateDataframeServlet extends HttpServlet {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dataframes").forward(request, response);
+        request.getRequestDispatcher("/dataframes").forward(request, response);
     }
 
 }
