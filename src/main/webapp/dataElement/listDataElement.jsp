@@ -5,7 +5,7 @@
 
 <head>
     <title>Item Storage</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
 <ul>

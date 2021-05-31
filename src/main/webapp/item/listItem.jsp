@@ -4,12 +4,13 @@
 
 <head>
     <title>Item Storage</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
 <ul>
     <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
     <li><a href="${pageContext.request.contextPath}/item/new">Create New Item</a></li>
+    <li><a href="${pageContext.request.contextPath}/item/search">Search in all Items</a></li>
 </ul>
 
 <table>

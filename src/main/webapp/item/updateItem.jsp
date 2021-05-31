@@ -5,18 +5,18 @@
 <html>
 <head>
     <title>Item Storage</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
-<%
-    List<Dataframe> dataframes = (List<Dataframe>) request.getAttribute("dataframes");
-%>
 <div>
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/item/new">Create New Item</a></li>
     </ul>
 </div>
+<%
+    List<Dataframe> dataframes = (List<Dataframe>) request.getAttribute("dataframes");
+%>
 <div>
     <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="post">
 
