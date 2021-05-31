@@ -1,5 +1,7 @@
 package uk.ac.ucl.model;
 
+import uk.ac.ucl.dataframe.Dataframe;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -9,18 +11,17 @@ import java.io.IOException;
 // which is returned whenever getModel is called.
 // The factory also illustrates how a data file name can be passed to the model.
 
-public class ModelFactory
-{
-  private static Model model;
+public class ModelFactory {
+    private static Model model;
 
-  public static Model getModel() throws IOException
-  {
-    if (model == null)
-    {
-      model = new Model();
-      // Note where the .csv file is in the data directory, and the pathname to locate it.
-      model.readFile(new File("./data/patients.csv"));
+    public static Model getModel() throws IOException {
+        if (model == null) {
+            model = new Model();
+            // Note where the .csv file is in the data directory, and the pathname to locate it.
+            //model.readFile(new File("./data/patients.csv"));
+            //model.createDummyModel();
+
+        }
+        return model;
     }
-    return model;
-  }
 }
