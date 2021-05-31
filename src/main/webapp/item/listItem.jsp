@@ -55,7 +55,7 @@
         <td><%=item.getLabel()%></td>
         <td><%=item.getDescription()%></td>
         <td>
-            <form id="requestItemsForm" action="${pageContext.request.contextPath}/dataElements" method="post">
+            <form id="requestItemsForm" action="${pageContext.request.contextPath}/dataElements" method="get">
                 <input type="hidden" id="requestDataElementItemId" name="requestDataElementItemId" value=<%=item.getItemId()%> required="required" />
                 <button type="submit">Items</button>
             </form>
@@ -70,6 +70,7 @@
         <td>
             <form id="deleteItemForm" action="${pageContext.request.contextPath}/item/delete" method="post">
                 <input type="hidden" id="deleteItemId" name="deleteItemId" value=<%=item.getItemId()%> required="required" />
+                <input type="hidden" id="deleteItemParentId" name="deleteItemParentId" value=<%=item.getParentId()%> required="required" />
                 <button type="submit">Delete</button>
             </form>
         </td>

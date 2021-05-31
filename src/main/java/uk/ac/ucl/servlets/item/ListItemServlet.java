@@ -1,5 +1,6 @@
 package uk.ac.ucl.servlets.item;
 
+import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
@@ -36,16 +37,8 @@ public class ListItemServlet extends HttpServlet {
 
         Model model = ModelFactory.getModel();
 
-        int itemId = Integer.parseInt(request.getParameter("itemId"));
-        int parentId = Integer.parseInt(request.getParameter("parentId"));
-        String label = request.getParameter("label");
-        String description = request.getParameter("description");
-        String group = request.getParameter("group");
-
-        Item newItem = Item.createAsItem(itemId, parentId, label, description, group);
-
         try {
-            model.getDataframeById(parentId).addItem(newItem);
+            request.getAttribute("items");
             request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
