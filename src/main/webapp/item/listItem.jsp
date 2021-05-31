@@ -56,7 +56,8 @@
         <td><%=item.getDescription()%></td>
         <td>
             <form id="requestItemsForm" action="${pageContext.request.contextPath}/dataElements" method="get">
-                <input type="hidden" id="requestDataElementItemId" name="requestDataElementItemId" value=<%=item.getItemId()%> required="required" />
+                <input type="hidden" id="parentItemId" name="parentItemId" value=<%=item.getItemId()%> required="required" />
+                <input type="hidden" id="parentDataframeId" name="parentDataframeId" value=<%=item.getParentId()%> required="required" />
                 <button type="submit">Items</button>
             </form>
         </td>
