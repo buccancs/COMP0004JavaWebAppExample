@@ -92,9 +92,8 @@ public class Dataframe {
         }
     }
 
-
-    public void removeSubItem(int subItemId) {
-        getItems().removeIf(subItem -> subItem.getItemId() == subItemId);
+    public void removeItem(int itemId) {
+        getItems().removeIf(subItem -> subItem.getItemId() == itemId);
     }
 //
 //    @Override

@@ -42,13 +42,11 @@ public class UpdateDataframeServlet extends HttpServlet {
         Model model = ModelFactory.getModel();
 
         int dataframeId = Integer.parseInt(request.getParameter("dataframeId"));
-        int newDataframeId = Integer.parseInt(request.getParameter("newDataframeId"));
         String newLabel = request.getParameter("label");
         String newDescription = request.getParameter("description");
 
         try {
             Dataframe dataframe = model.getDataframeById(dataframeId);
-            dataframe.setDataFrameId(newDataframeId);
             dataframe.setLabel(newLabel);
             dataframe.setDescription(newDescription);
         } catch (Exception e) {

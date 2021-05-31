@@ -30,10 +30,7 @@
 </div>
 <div class="main">
     <form id="updateDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="post">
-        <label for="dataframeId">dataframeId:</label>
         <input type="hidden" id="dataframeId" name="dataframeId" value=<%=request.getAttribute("dataframeId")%> required="required"/>
-        <label for="newDataframeId">newDataframeId:</label><br>
-        <input type="text" id="newDataframeId" name="newDataframeId" required="required"/><br>
         <label for="label">label:</label><br>
         <input type="text" id="label" name="label" required="required" /><br>
         <label for="description">description:</label><br>
