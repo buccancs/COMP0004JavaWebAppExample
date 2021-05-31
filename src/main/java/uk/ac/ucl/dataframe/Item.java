@@ -110,6 +110,10 @@ public class Item {
         }
     }
 
+    public void removeDataElement(int dataId) {
+        getDataElements().removeIf(dataElement -> dataElement.getDataId() == dataId);
+    }
+
 
 //    public List<DataElement> getDataElements() {
 //        if (this.dataElement == null) {

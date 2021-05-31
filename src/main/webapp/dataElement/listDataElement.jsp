@@ -62,7 +62,9 @@
         </td>
         <td>
             <form id="deleteItemForm" action="${pageContext.request.contextPath}/dataElement/delete" method="post">
-                <input type="hidden" id="deleteItemId" name="deleteItemId" value=<%=dataElement.getDataId()%> required="required" />
+                <input type="hidden" id="deleteDataElementId" name="deleteDataElementId" value=<%=dataElement.getDataId()%> required="required" />
+                <input type="hidden" id="deleteParentItemId" name="deleteParentItemId" value=<%=dataElement.getParentItemId()%> required="required" />
+                <input type="hidden" id="deleteParentDataframeId" name="deleteParentDataframeId" value=<%=dataElement.getParentDataframeId()%> required="required" />
                 <button type="submit">Delete</button>
             </form>
         </td>
