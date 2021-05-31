@@ -102,7 +102,7 @@ public class Model {
 
     public void createDummyModel() {
         Item dummyItem = Item.createAsItem(690, 6901, "dummy item", "description of dummy item", "dummy group");
-        dummyItem.addDataElement(69, "URL", "www.google.hu");
+        dummyItem.addDataElement(69, 690, 6901, "URL", "www.google.hu");
         Dataframe dummyDataframe = Dataframe.create(6901, "dummy dataframe", "description dummy dataframe");
         dummyDataframe.addItem(dummyItem);
         this.dataframes.add(dummyDataframe);

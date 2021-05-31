@@ -53,13 +53,15 @@
         <td><%=dataElement.getDataType()%></td>
         <td><%=dataElement.getData()%></td>
         <td>
-            <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="get">
-                <input type="hidden" id="updateItemId" name="updateItemId" value=<%=dataElement.getDataId()%> required="required" />
+            <form id="updateItemForm" action="${pageContext.request.contextPath}/dataElement/update" method="get">
+                <input type="hidden" id="updateDataElementId" name="updateDataElementId" value=<%=dataElement.getDataId()%> required="required" />
+                <input type="hidden" id="updateParentItemId" name="updateParentItemId" value=<%=dataElement.getParentItemId()%> required="required" />
+                <input type="hidden" id="updateParentDataframeId" name="updateParentDataframeId" value=<%=dataElement.getParentDataframeId()%> required="required" />
                 <button type="submit">Update</button>
             </form>
         </td>
         <td>
-            <form id="deleteItemForm" action="${pageContext.request.contextPath}/item/delete" method="post">
+            <form id="deleteItemForm" action="${pageContext.request.contextPath}/dataElement/delete" method="post">
                 <input type="hidden" id="deleteItemId" name="deleteItemId" value=<%=dataElement.getDataId()%> required="required" />
                 <button type="submit">Delete</button>
             </form>

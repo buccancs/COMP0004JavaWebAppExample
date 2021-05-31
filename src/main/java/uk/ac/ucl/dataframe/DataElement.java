@@ -2,14 +2,18 @@ package uk.ac.ucl.dataframe;
 
 public class DataElement {
     private int dataId;
+    private int parentItemId;
+    private int parentDataframeId;
     private String dataType;
     private String data;
 
-    public static DataElement create(int dataId, String dataType, String data){
+    public static DataElement create(int dataId, int parentItemId, int parentDataframeId, String dataType, String data){
         DataElement dataElement = new DataElement();
         dataElement.setDataId(dataId);
+        dataElement.setParentItemId(parentItemId);
+        dataElement.setParentDataframeId(parentDataframeId);
         dataElement.setDataType(dataType);
-        dataElement.setDataType(data);
+        dataElement.setData(data);
 
         return dataElement;
     }
@@ -24,6 +28,22 @@ public class DataElement {
 
     public int getDataId(){
         return this.dataId;
+    }
+
+    public void setParentItemId(int parentItemId) {
+        this.parentItemId = parentItemId;
+    }
+
+    public int getParentItemId() {
+        return parentItemId;
+    }
+
+    public void setParentDataframeId(int parentDataframeId) {
+        this.parentDataframeId = parentDataframeId;
+    }
+
+    public int getParentDataframeId() {
+        return parentDataframeId;
     }
 
     public void setDataType(String dataType) {

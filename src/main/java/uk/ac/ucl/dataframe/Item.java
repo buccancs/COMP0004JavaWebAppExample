@@ -11,9 +11,9 @@ public class Item {
     private List<String> tags;
     private List<DataElement> dataElements;
 
-    public static Item createAsItem(int generatedId, int parentId, String label, String description, String group) {
+    public static Item createAsItem(int itemId, int parentId, String label, String description, String group) {
         Item item = new Item();
-        item.setItemId(generatedId);
+        item.setItemId(itemId);
         item.setParentId(parentId);
         item.setLabel(label);
         item.setDescription(description);
@@ -85,8 +85,8 @@ public class Item {
         this.dataElements.add(dataElement);
     }
 
-    public void addDataElement(int dataId, String dataLabel, String data) {
-        this.dataElements.add(DataElement.create(dataId, dataLabel, data));
+    public void addDataElement(int dataId, int parentItemId, int parentDataframeId, String dataLabel, String data) {
+        this.dataElements.add(DataElement.create(dataId, parentItemId, parentDataframeId, dataLabel, data));
     }
 
     public List<DataElement> getDataElements() {
