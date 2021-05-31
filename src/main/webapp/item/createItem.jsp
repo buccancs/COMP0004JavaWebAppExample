@@ -41,7 +41,7 @@
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
-            <option value=<%=dataframe.getDataFrameId()%>><%=dataframe.getDataFrameId()%></option>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
             <%
                 }
             %>

@@ -1,74 +1,65 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Duy An Tran
-  Date: 5/30/2021
-  Time: 5:26 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.*" %>
+<%@ page import="uk.ac.ucl.dataframe.Dataframe" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Item Storage</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="span9">
-            <div class="well">
-                <div class="page-header">
-                    <h1>Update Item</h1>
-                </div>
+<%
+    List<Dataframe> dataframes = (List<Dataframe>) request.getAttribute("dataframes");
+%>
+<div>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/item/new">Create New Item</a></li>
+    </ul>
+</div>
+<div>
+    <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="post">
 
-                <form id="updateITemForm " action="${pageContext.request.contextPath}/?item={id}/update" method="post" class="form-horizontal">
+        <label for="newParentId">Choose your dataframe to assign to:</label><br>
+        <select name="newParentId" id="newParentId">
+            <%
+                for (Dataframe dataframe : dataframes) {
+            %>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
+            <%
+                }
+            %>
+        </select><br>
 
-                    <fieldset>
-
-                        <div class="control-group">
-                            <label class="control-label" for="itemId">itemId:</label>
-                            <div class="controls">
-                                <input type="text" id="itemId" name="itemId" value="${requestScope.item.itemId}" disabled="disabled"/>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="label">label:</label>
-                            <div class="controls">
-                                <input type="text" id="label" name="title" value="${requestScope.item.label}" required="required" autofocus="autofocus" />
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="description">description:</label>
-                            <div class="controls">
-                                <input type="text" id="description" name="description" value="${requestScope.item.description}" required="required" />
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="status">Status:</label>
-                            <div class="controls">
-                                <select id="status" name="status">
-                                    <option value="false">Todo</option>
-                                    <option value="true">Done</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <input type="hidden" name="parentId" value="${requestScope.item.parentId}"/>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary"> <i class="icon-refresh icon-white"></i> Update</button>
-                            <button type="button" class="btn" onclick="history.go(-1)"><i class="icon-remove"></i> Cancel</button>
-                        </div>
-
-                    </fieldset>
-
-                </form>
-
-            </div>
+        <input type="hidden" id="itemId" name="itemId" value=<%=request.getAttribute("updateItemId")%> required="required" />
+        <input type="hidden" id="parentId" name="parentId" value=<%=request.getAttribute("updateItemParentId")%> required="required" />
+        <label for="label">label:</label><br>
+        <input type="text" id="label" name="label" required="required" /><br>
+        <label for="description">description:</label><br>
+        <input type="text" id="description" name="description" required="required" /><br>
+        <label for="group">group:</label><br>
+        <input type="text" id="group" name="group" required="required" /><br>
+        <div class="form-actions"><br>
+            <button type="submit">Create</button>
+            <button type="button" onclick="history.go(-1)">Cancel</button>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>

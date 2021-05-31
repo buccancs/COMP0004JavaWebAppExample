@@ -43,11 +43,11 @@ public class AddDataElementServlet extends HttpServlet {
                 if (item.getItemId() == itemId){
                     item.addDataElement(dataElement);
                 }
+                else{
+
+                }
             }
         }
-
         request.getRequestDispatcher("/ListItemServlet").forward(request, response);
-
     }
-
 }

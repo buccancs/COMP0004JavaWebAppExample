@@ -39,13 +39,10 @@ public class CreateDataframeServlet extends HttpServlet {
 
         try {
             model.addDataframe(newDataframe);
+            request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("/dataframes").forward(request, response);
-
     }
-
 }

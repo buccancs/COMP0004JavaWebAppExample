@@ -26,13 +26,12 @@ public class DeleteDataframeServlet extends HttpServlet {
 
         int dataframeId = Integer.parseInt(request.getParameter("deleteDataframeId"));
 
-
         try {
             model.removeDataframeById(dataframeId);
+            request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("/dataframes").forward(request, response);
     }
 }

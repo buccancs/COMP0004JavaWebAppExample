@@ -3,29 +3,29 @@ package uk.ac.ucl.dataframe;
 import java.util.*;
 
 public class Dataframe {
-    private int dataFrameId;
+    private int dataframeId;
     private String label;
     private String description;
     private List<String> tags;
     private List<Item> items;
 
     public static Dataframe create(int dataFrameId, String label, String description){
-        Dataframe dataFrame = new Dataframe();
-        dataFrame.setDataFrameId(dataFrameId);
-        dataFrame.setLabel(label);
-        dataFrame.setDescription(description);
-        dataFrame.setTags(new ArrayList<String>());
-        dataFrame.setItems(new ArrayList<Item>());
+        Dataframe dataframe = new Dataframe();
+        dataframe.setDataframeId(dataFrameId);
+        dataframe.setLabel(label);
+        dataframe.setDescription(description);
+        dataframe.setTags(new ArrayList<String>());
+        dataframe.setItems(new ArrayList<Item>());
 
-        return dataFrame;
+        return dataframe;
     }
 
-    public void setDataFrameId(int dataFrameId) {
-        this.dataFrameId = dataFrameId;
+    public void setDataframeId(int dataframeId) {
+        this.dataframeId = dataframeId;
     }
 
-    public int getDataFrameId() {
-        return dataFrameId;
+    public int getDataframeId() {
+        return dataframeId;
     }
 
     public void setLabel(String label) {
@@ -99,7 +99,7 @@ public class Dataframe {
 //    @Override
 //    public String toString() {
 //        StringBuilder itemString = new StringBuilder("Dataframe{");
-//        itemString.append("dataFrameId=").append(dataFrameId);
+//        itemString.append("dataframeId=").append(dataframeId);
 //        itemString.append(", label='").append(label);
 //        itemString.append(", description=").append(description);
 //        itemString.append(", tags=");

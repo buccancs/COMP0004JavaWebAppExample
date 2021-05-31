@@ -24,13 +24,11 @@ public class ListItemServlet extends HttpServlet {
         try {
             List<Item> items = model.getDataframeById(dataframeId).getItems();
             request.setAttribute("items", items);
+            request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
-
     }
 
     @Override
@@ -48,13 +46,10 @@ public class ListItemServlet extends HttpServlet {
 
         try {
             model.getDataframeById(parentId).addItem(newItem);
+            request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
-
     }
-
 }

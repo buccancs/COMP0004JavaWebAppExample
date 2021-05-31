@@ -28,12 +28,11 @@ public class UpdateDataframeServlet extends HttpServlet {
         try {
             request.setAttribute("dataframes", model.getListDataframe());
             request.setAttribute("dataframeId", dataframeId);
+            request.getRequestDispatcher("updateDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("updateDataframe.jsp").forward(request, response);
-
     }
 
     @Override
@@ -49,11 +48,10 @@ public class UpdateDataframeServlet extends HttpServlet {
             Dataframe dataframe = model.getDataframeById(dataframeId);
             dataframe.setLabel(newLabel);
             dataframe.setDescription(newDescription);
+            request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("/dataframes").forward(request, response);
     }
-
 }

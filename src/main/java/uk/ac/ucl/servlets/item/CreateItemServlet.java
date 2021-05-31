@@ -24,13 +24,11 @@ public class CreateItemServlet extends HttpServlet {
         try {
             List<Dataframe> dataframes = model.getListDataframe();
             request.setAttribute("dataframes", dataframes);
+            request.getRequestDispatcher("createItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("createItem.jsp").forward(request, response);
-
     }
 
     @Override
@@ -44,18 +42,13 @@ public class CreateItemServlet extends HttpServlet {
         String description = request.getParameter("description");
         String group = request.getParameter("group");
 
-        Item newItem = Item.createAsItem(itemId, parentId, label, description, group);
-
         try {
-            model.getDataframeById(parentId).addItem(newItem);
+            Item.createAsItem(itemId, parentId, label, description, group);
             request.setAttribute("items", model.getDataframeById(parentId).getItems());
+            request.getRequestDispatcher("/items").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("/items").forward(request, response);
-
     }
-
 }

@@ -25,7 +25,7 @@
 <body>
 <ul>
     <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
-    <li><a href="${pageContext.request.contextPath}/item/new">Create New Dataframe</a></li>
+    <li><a href="${pageContext.request.contextPath}/item/new">Create New Item</a></li>
 </ul>
 
 <table>
@@ -63,6 +63,7 @@
         <td>
             <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="get">
                 <input type="hidden" id="updateItemId" name="updateItemId" value=<%=item.getItemId()%> required="required" />
+                <input type="hidden" id="updateItemParentId" name="updateItemParentId" value=<%=item.getParentId()%> required="required" />
                 <button type="submit">Update</button>
             </form>
         </td>

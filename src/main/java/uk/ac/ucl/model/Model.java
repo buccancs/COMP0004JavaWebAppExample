@@ -1,6 +1,5 @@
 package uk.ac.ucl.model;
 
-import org.apache.tomcat.util.log.UserDataHelper;
 import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 
@@ -61,7 +60,7 @@ public class Model {
         }
         else {
             for (Dataframe dataframe : this.dataframes){
-                if (dataframe.getDataFrameId() == dataframeId){
+                if (dataframe.getDataframeId() == dataframeId){
                     return dataframe;
                 }
             }
@@ -77,7 +76,7 @@ public class Model {
         }
         else {
             for (Dataframe dataframe : this.dataframes) {
-                iDList.add(dataframe.getDataFrameId());
+                iDList.add(dataframe.getDataframeId());
             }
             return iDList;
         }
@@ -98,11 +97,11 @@ public class Model {
     }
 
     public void removeDataframeById(int dataframeId){
-        this.getListDataframe().removeIf(dataframe -> dataframe.getDataFrameId() == dataframeId);
+        this.getListDataframe().removeIf(dataframe -> dataframe.getDataframeId() == dataframeId);
     }
 
     public void createDummyModel() {
-        Item dummyItem = Item.createAsItem(690, 6900, "dummy item", "description of dummy item", "dummy group");
+        Item dummyItem = Item.createAsItem(690, 6901, "dummy item", "description of dummy item", "dummy group");
         dummyItem.addDataElement(69, "URL", "www.google.hu");
         Dataframe dummyDataframe = Dataframe.create(6901, "dummy dataframe", "description dummy dataframe");
         dummyDataframe.addItem(dummyItem);

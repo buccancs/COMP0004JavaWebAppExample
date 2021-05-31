@@ -25,11 +25,11 @@ public class ListDataframeServlet extends HttpServlet {
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
+            request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
     }
 
     @Override
@@ -39,10 +39,10 @@ public class ListDataframeServlet extends HttpServlet {
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
+            request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
     }
 }
