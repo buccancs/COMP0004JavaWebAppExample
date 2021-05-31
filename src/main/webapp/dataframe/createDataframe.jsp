@@ -38,7 +38,7 @@
         <input type="text" id="description" name="description" required="required" /><br>
         <div class="form-actions"><br>
             <button type="submit">Create</button>
-            <button type="button">Cancel</button>
+            <button type="button" onclick="history.go(-1)">Cancel</button>
         </div>
     </form>
 </div>

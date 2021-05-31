@@ -1,5 +1,6 @@
 package uk.ac.ucl.servlets.item;
 
+import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
@@ -10,14 +11,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "AddItemServlet", urlPatterns = {"/items/new"})
-public class AddItemServlet extends HttpServlet {
+@WebServlet(name = "CreateItemServlet", urlPatterns = {"/item/new"})
+public class CreateItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("/createItem.jsp").forward(request, response);
+        Model model = ModelFactory.getModel();
+
+        try {
+            List<Dataframe> dataframes = model.getListDataframe();
+            request.setAttribute("dataframes", dataframes);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        }
+
+        request.getRequestDispatcher("createItem.jsp").forward(request, response);
 
     }
 
@@ -36,12 +48,13 @@ public class AddItemServlet extends HttpServlet {
 
         try {
             model.getDataframeById(parentId).addItem(newItem);
+            request.setAttribute("items", model.getDataframeById(parentId).getItems());
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("/{id}dataframe").forward(request, response);
+        request.getRequestDispatcher("/items").forward(request, response);
 
     }
 

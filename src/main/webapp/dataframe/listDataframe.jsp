@@ -51,7 +51,7 @@
         <td><%=dataframe.getLabel()%></td>
         <td><%=dataframe.getDescription()%></td>
         <td>
-            <form id="requestItemsForm" action="${pageContext.request.contextPath}/items" method="post">
+            <form id="requestItemsForm" action="${pageContext.request.contextPath}/items" method="get">
                 <input type="hidden" id="requestItemsDataframeId" name="requestItemsDataframeId" value=<%=dataframe.getDataFrameId()%> required="required" />
                 <button type="submit">Items</button>
             </form>

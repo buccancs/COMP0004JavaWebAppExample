@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "UpdateItemServlet", urlPatterns = {"/?dataframeId={dataframeId}&itemId={itemId}/new"})
+@WebServlet(name = "UpdateItemServlet", urlPatterns = {"/item/update"})
 public class UpdateItemServlet extends HttpServlet {
 
     @Override

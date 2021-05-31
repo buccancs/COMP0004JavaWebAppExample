@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "SearchItemServlet", urlPatterns = {"/items", "/items/search"})
+@WebServlet(name = "SearchItemServlet", urlPatterns = {"/item/search"})
 public class SearchItemServlet extends HttpServlet {
 
     @Override
@@ -27,7 +27,7 @@ public class SearchItemServlet extends HttpServlet {
 
         request.setAttribute("itemList", itemList);
 
-        request.getRequestDispatcher("/searchItem.jsp").forward(request, response);
+        request.getRequestDispatcher("item/searchItem.jsp").forward(request, response);
 
     }
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListItemServlet", urlPatterns = {"/yeet"})
+@WebServlet(name = "ListItemServlet", urlPatterns = {"/items"})
 public class ListItemServlet extends HttpServlet {
 
     @Override
@@ -20,7 +20,7 @@ public class ListItemServlet extends HttpServlet {
 
         Model model = ModelFactory.getModel();
 
-        int dataframeId = Integer.parseInt(request.getParameter("dataframeId"));
+        int dataframeId = Integer.parseInt(request.getParameter("requestItemsDataframeId"));
         try {
             List<Item> items = model.getDataframeById(dataframeId).getItems();
             request.setAttribute("items", items);
@@ -29,32 +29,32 @@ public class ListItemServlet extends HttpServlet {
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("listItem.jsp").forward(request, response);
+        request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
 
     }
 
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        Model model = ModelFactory.getModel();
-//
-//        int itemId = Integer.parseInt(request.getParameter("itemId"));
-//        int parentId = Integer.parseInt(request.getParameter("parentId"));
-//        String label = request.getParameter("label");
-//        String description = request.getParameter("description");
-//        String group = request.getParameter("group");
-//
-//        Item newItem = Item.createAsItem(itemId, parentId, label, description, group);
-//
-//        try {
-//            model.getDataframeById(parentId).addItem(newItem);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            request.getRequestDispatcher("/error.jsp").forward(request, response);
-//        }
-//
-//        request.getRequestDispatcher("/{id}dataframe").forward(request, response);
-//
-//    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Model model = ModelFactory.getModel();
+
+        int itemId = Integer.parseInt(request.getParameter("itemId"));
+        int parentId = Integer.parseInt(request.getParameter("parentId"));
+        String label = request.getParameter("label");
+        String description = request.getParameter("description");
+        String group = request.getParameter("group");
+
+        Item newItem = Item.createAsItem(itemId, parentId, label, description, group);
+
+        try {
+            model.getDataframeById(parentId).addItem(newItem);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        }
+
+        request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
+
+    }
 
 }
