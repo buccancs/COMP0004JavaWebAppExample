@@ -20,27 +20,27 @@
             background-color: #dddddd;
         }
     </style>
-    </head>
-    <body>
-        <div>
-            <ul class="nav">
-                <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/dataframe/new">Create New Dataframe</a></li>
-            </ul>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/dataframe/new">Create New Dataframe</a></li>
+    </ul>
+</div>
+<div>
+    <form id="createDataframeForm" action="${pageContext.request.contextPath}/dataframe/new" method="post">
+        <label for="dataframeId">dataframeId:</label><br>
+        <input type="text" id="dataframeId" name="dataframeId" required="required"/><br>
+        <label for="label">label:</label><br>
+        <input type="text" id="label" name="label" required="required" /><br>
+        <label for="description">description:</label><br>
+        <input type="text" id="description" name="description" required="required" /><br>
+        <div class="form-actions"><br>
+            <button type="submit">Create</button>
+            <button type="button">Cancel</button>
         </div>
-        <div class="main">
-            <form id="createDataframeForm" action="${pageContext.request.contextPath}/dataframe/new" method="post">
-                <label for="dataframeId">dataframeId:</label><br>
-                <input type="text" id="dataframeId" name="dataframeId" required="required"/><br>
-                <label for="label">label:</label><br>
-                <input type="text" id="label" name="label" required="required" /><br>
-                <label for="description">description:</label><br>
-                <input type="text" id="description" name="description" required="required" /><br>
-                <div class="form-actions"><br>
-                    <button type="submit">Create</button>
-                    <button type="button">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </body>
+    </form>
+</div>
+</body>
 </html>
