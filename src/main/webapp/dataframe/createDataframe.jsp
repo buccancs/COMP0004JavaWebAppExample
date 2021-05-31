@@ -10,6 +10,7 @@
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/dataframe/new">Create New Dataframe</a></li>
+        <li><a href="${pageContext.request.contextPath}/dataframe/search">Search in all Dataframes</a></li>
     </ul>
 </div>
 <div>
