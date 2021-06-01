@@ -1,9 +1,10 @@
 package uk.ac.ucl.model;
 
+import uk.ac.ucl.dataframe.DataElement;
 import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,28 +100,97 @@ public class Model {
     }
 
     public void createDummyModel() {
-        Item dummyItem = Item.createAsItem(690, 6901, "dummy item", "description of dummy item", "dummy group");
-        dummyItem.addDataElement(69, 690, 6901, "URL", "www.google.hu");
-        Dataframe dummyDataframe = Dataframe.create(6901, "dummy dataframe", "description dummy dataframe");
-        dummyDataframe.addItem(dummyItem);
-        this.dataframes.add(dummyDataframe);
+        Item dummyItem1 = Item.createAsItem(690, 6901, "dummy item1", "description of dummy item1", "dummy group1");
+        Item dummyItem2 = Item.createAsItem(700, 7001, "dummy item2", "description of dummy item2", "dummy group2");
+        dummyItem1.addDataElement(69, 690, 6901, "URL", "www.google.hu");
+        dummyItem2.addDataElement(70, 700, 7001, "URL", "www.google.com");
+        Dataframe dummyDataframe1 = Dataframe.create(6901, "dummy dataframe1", "description dummy dataframe1");
+        Dataframe dummyDataframe2 = Dataframe.create(7001, "dummy dataframe2", "description dummy dataframe2");
+        dummyDataframe1.addItem(dummyItem1);
+        dummyDataframe2.addItem(dummyItem2);
+        this.dataframes.add(dummyDataframe1);
+        this.dataframes.add(dummyDataframe2);
     }
 
     public List<String> getPatientNames() throws Exception {
         return List.of(String.valueOf(getDataframeById(6900).getItemById(690).getDataElementById(69).getDataType()));
     }
 
-//    public List<String> getPatientNames() {
-//        return List.of("Name1", "Name2", "Name3"); // This is just dummy data
-//    }
 
-    public void readFile(File file) {
+    public void readFile() throws IOException {
         // Read a patient .csv data file and create the DataFrame.
     }
 
-    // This also returns dummy data. The real version should use the keyword parameter to search
-    // the patient data and return a list of matching items.
-    public List<String> searchFor(String keyword) {
-        return List.of("Search keyword is: " + keyword, "result1", "result2", "result3");
+    public void saveFileDataframe(){
+        try {
+            String valueDataframe = "dataframeId, label, description\n";
+
+            for (Dataframe dataframe : this.getListDataframe()){
+                valueDataframe = valueDataframe.concat(dataframe.toString());
+                }
+
+            String cwd = System.getProperty("user.dir");
+
+            FileOutputStream fos = new FileOutputStream(cwd + "/data/dataframeData.csv");
+            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+            outStream.writeUTF(valueDataframe);
+            outStream.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("IOError.");
+        }
+    }
+
+    public void saveFileItem(){
+        try {
+            String valueItem = "itemId, parentId,label, description, group\n";
+
+            for (Dataframe dataframe : this.getListDataframe()){
+                for (Item item : dataframe.getItems()){
+                    valueItem = valueItem.concat(item.toString());
+                }
+            }
+
+            String cwd = System.getProperty("user.dir");
+
+            FileOutputStream fos1 = new FileOutputStream(cwd + "/data/itemData.csv");
+            DataOutputStream outStream1 = new DataOutputStream(new BufferedOutputStream(fos1));
+            outStream1.writeUTF(valueItem);
+            outStream1.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("IOError.");
+        }
+    }
+
+    public void saveFileDataElement(){
+        try {
+
+            String valueDataElement = "dataId, parentItemId, parentDataframeId, dataType, data\n";
+
+            for (Dataframe dataframe : this.getListDataframe()){
+                for (Item item : dataframe.getItems()){
+                    for (DataElement dataElement : item.getDataElements()){
+                        valueDataElement = valueDataElement.concat(dataElement.toString());
+                    }
+                }
+            }
+
+            String cwd = System.getProperty("user.dir");
+
+            FileOutputStream fos2 = new FileOutputStream(cwd + "/data/dataElementData.csv");
+            DataOutputStream outStream2 = new DataOutputStream(new BufferedOutputStream(fos2));
+            outStream2.writeUTF(valueDataElement);
+            outStream2.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("IOError.");
+        }
     }
 }

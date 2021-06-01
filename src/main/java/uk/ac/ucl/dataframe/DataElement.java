@@ -62,13 +62,8 @@ public class DataElement {
         this.data = data;
     }
 
-//    @Override
-//    public String toString() {
-//        final StringBuilder dataElementString = new StringBuilder("DataElement{");
-//        dataElementString.append("dataId=").append(dataId);
-//        dataElementString.append(", dataType='").append(dataType);
-//        dataElementString.append(", data=").append(data);
-//        dataElementString.append('}');
-//        return dataElementString.toString();
-//    }
+    @Override
+    public String toString() {
+        return dataId + ", " + parentItemId + ", " + parentDataframeId + ", " + dataType + ", " + data + "\n";
+    }
 }

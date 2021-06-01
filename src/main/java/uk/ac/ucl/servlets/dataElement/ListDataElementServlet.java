@@ -25,6 +25,7 @@ public class ListDataElementServlet extends HttpServlet {
         try {
             List<DataElement> dataElements = model.getDataframeById(dataframeId).getItemById(itemId).getDataElements();
             request.setAttribute("dataElements", dataElements);
+            model.saveFileDataElement();
             request.getRequestDispatcher("dataElement/listDataElement.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,6 +40,7 @@ public class ListDataElementServlet extends HttpServlet {
 
         try {
             request.getAttribute("dataElements");
+            model.saveFileDataElement();
             request.getRequestDispatcher("dataElement/listDataElement.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

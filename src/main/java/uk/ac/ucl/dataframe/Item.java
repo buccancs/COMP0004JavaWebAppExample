@@ -9,7 +9,7 @@ public class Item {
     private String label;
     private String description;
     private String group;
-    private List<String> tags;
+//    private List<String> tags;
     private List<DataElement> dataElements;
 
     public static Item createAsItem(int itemId, int parentId, String label, String description, String group) {
@@ -64,19 +64,19 @@ public class Item {
         this.group = group;
     }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-    public void addTag(String tag) {
-        if (!tags.contains(tag)) {
-            tags.add(tag);
-        }
-    }
-
-    public void removeTag(String tag) {
-        tags.remove(tag);
-    }
+//    public void setTags(List<String> tags) {
+//        this.tags = tags;
+//    }
+//
+//    public void addTag(String tag) {
+//        if (!tags.contains(tag)) {
+//            tags.add(tag);
+//        }
+//    }
+//
+//    public void removeTag(String tag) {
+//        tags.remove(tag);
+//    }
 
     public void addDataElement(DataElement dataElement) {
         this.dataElements.add(dataElement);
@@ -127,19 +127,8 @@ public class Item {
 //
 //    }
 
-//    @Override
-//    public String toString() {
-//        final StringBuilder itemString = new StringBuilder("Item{");
-//        itemString.append("itemId=").append(itemId);
-//        itemString.append(", label='").append(label);
-//        itemString.append(", description=").append(description);
-//        itemString.append(", group=").append(group);
-//        itemString.append(", tags=");
-//        tags.forEach((tag) -> itemString.append(tag).append(" ,"));
-//        itemString.append(dataElement.toString());
-//        itemString.append('}');
-//
-//        return itemString.toString();
-//    }
-
+    @Override
+    public String toString() {
+        return itemId + ", " + parentId + ", " + label + ", " + description + ", " + group + "\n";
+    }
 }

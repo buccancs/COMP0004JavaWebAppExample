@@ -7,7 +7,7 @@ public class Dataframe {
     private int dataframeId;
     private String label;
     private String description;
-    private List<String> tags;
+//    private List<String> tags;
     private List<Item> items;
 
     public static Dataframe create(int dataFrameId, String label, String description) {
@@ -15,7 +15,7 @@ public class Dataframe {
         dataframe.setDataframeId(dataFrameId);
         dataframe.setLabel(label);
         dataframe.setDescription(description);
-        dataframe.setTags(new ArrayList<String>());
+//        dataframe.setTags(new ArrayList<String>());
         dataframe.setItems(new ArrayList<Item>());
 
         return dataframe;
@@ -45,20 +45,20 @@ public class Dataframe {
         this.description = description;
     }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-    public void addTag(String tag) {
-        if (!tags.contains(tag)) {
-            tags.add(tag);
-        }
-    }
-
-    public void removeTag(String tag) {
-        tags.remove(tag);
-    }
-
+//    public void setTags(List<String> tags) {
+//        this.tags = tags;
+//    }
+//
+//    public void addTag(String tag) {
+//        if (!tags.contains(tag)) {
+//            tags.add(tag);
+//        }
+//    }
+//
+//    public void removeTag(String tag) {
+//        tags.remove(tag);
+//    }
+//
     public void addItem(int itemId, int parentId, String label, String description, String group) {
         Item newItem = Item.createAsItem(itemId, parentId, label, description, group);
         this.items.add(newItem);
@@ -95,20 +95,10 @@ public class Dataframe {
     public void removeItem(int itemId) {
         getItems().removeIf(subItem -> subItem.getItemId() == itemId);
     }
-//
-//    @Override
-//    public String toString() {
-//        StringBuilder itemString = new StringBuilder("Dataframe{");
-//        itemString.append("dataframeId=").append(dataframeId);
-//        itemString.append(", label='").append(label);
-//        itemString.append(", description=").append(description);
-//        itemString.append(", tags=");
-//        tags.forEach((tag) -> itemString.append(tag).append(" ,"));
-//        itemString.append(", items=");
-//        items.forEach((item) -> itemString.append(item.toString()).append(" ,"));
-//        itemString.append('}');
-//
-//        return itemString.toString();
-//    }
+
+    @Override
+    public String toString() {
+        return dataframeId + ", " + label + ", " + description + "\n";
+    }
 
 }

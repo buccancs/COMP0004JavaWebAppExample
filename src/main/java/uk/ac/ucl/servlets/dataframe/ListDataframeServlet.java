@@ -20,6 +20,7 @@ public class ListDataframeServlet extends HttpServlet {
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
+            model.saveFileDataframe();
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +34,8 @@ public class ListDataframeServlet extends HttpServlet {
         Model model = ModelFactory.getModel();
 
         try {
-            request.setAttribute("dataframes", model.getListDataframe());
+            request.getAttribute("dataframes");
+            model.saveFileDataframe();
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

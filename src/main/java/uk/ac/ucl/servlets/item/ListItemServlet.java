@@ -24,6 +24,7 @@ public class ListItemServlet extends HttpServlet {
         try {
             List<Item> items = model.getDataframeById(dataframeId).getItems();
             request.setAttribute("items", items);
+            model.saveFileItem();
             request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,6 +39,7 @@ public class ListItemServlet extends HttpServlet {
 
         try {
             request.getAttribute("items");
+            model.saveFileItem();
             request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
