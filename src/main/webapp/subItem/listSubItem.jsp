@@ -41,12 +41,12 @@
         <td><%=subItem.getData()%>
         </td>
         <td>
-            <form id="updateItemForm" action="${pageContext.request.contextPath}/subItem/update" method="get">
-                <input type="hidden" id="updateSubItemId" name="updateSubItemId"
+            <form id="editItemForm" action="${pageContext.request.contextPath}/subItem/edit" method="get">
+                <input type="hidden" id="editSubItemId" name="editSubItemId"
                        value=<%=subItem.getDataId()%> required="required"/>
-                <input type="hidden" id="updateParentItemId" name="updateParentItemId"
+                <input type="hidden" id="editParentItemId" name="editParentItemId"
                        value=<%=subItem.getParentItemId()%> required="required"/>
-                <input type="hidden" id="updateParentDataframeId" name="updateParentDataframeId"
+                <input type="hidden" id="editParentDataframeId" name="editParentDataframeId"
                        value=<%=subItem.getParentDataframeId()%> required="required"/>
                 <button type="submit">Update</button>
             </form>

@@ -12,22 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UpdateSubItemServlet", urlPatterns = {"/subItem/update"})
-public class UpdateSubItemServlet extends HttpServlet {
+@WebServlet(name = "UpdateSubItemServlet", urlPatterns = {"/subItem/edit"})
+public class EditSubItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Model model = ModelFactory.getModel();
-        int updateSubItemId = Integer.parseInt(request.getParameter("updateSubItemId"));
-        int updateParentItemId = Integer.parseInt(request.getParameter("updateParentItemId"));
-        int updateParentDataframeId = Integer.parseInt(request.getParameter("updateParentDataframeId"));
+        int editSubItemId = Integer.parseInt(request.getParameter("editSubItemId"));
+        int editParentItemId = Integer.parseInt(request.getParameter("editParentItemId"));
+        int editParentDataframeId = Integer.parseInt(request.getParameter("editParentDataframeId"));
 
         try {
-            request.setAttribute("dataId", updateSubItemId);
-            request.setAttribute("parentItemId", updateParentItemId);
-            request.setAttribute("parentDataframeId", updateParentDataframeId);
-            request.getRequestDispatcher("updateSubItem.jsp").forward(request, response);
+            request.setAttribute("dataId", editSubItemId);
+            request.setAttribute("parentItemId", editParentItemId);
+            request.setAttribute("parentDataframeId", editParentDataframeId);
+            request.getRequestDispatcher("editSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);

@@ -1,0 +1,7 @@
+SitemId, parentId, label, description, group
+1,1,Games,Gaming related websites,dummygroup1
+2,1,School,School related websites,dummygroup2
+3,2,Chill Songs,Songs to study to,dummygroup3
+4,2,Training Songs,Pre-exercise songs,dummygroup4
+5,3,School Books,Recommended books for school,dummygroup5
+6,3,Leasure Books,Fun books to read,dummygroup6

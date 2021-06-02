@@ -18,7 +18,7 @@ public class SubItem {
         return subItem;
     }
 
-    public void update(String data) {
+    public void edit(String data) {
         this.data = data;
     }
 

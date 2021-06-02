@@ -53,10 +53,10 @@
             </form>
         </td>
         <td>
-            <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="get">
-                <input type="hidden" id="updateItemId" name="updateItemId"
+            <form id="editItemForm" action="${pageContext.request.contextPath}/item/edit" method="get">
+                <input type="hidden" id="editItemId" name="editItemId"
                        value=<%=item.getItemId()%> required="required"/>
-                <input type="hidden" id="updateItemParentId" name="updateItemParentId"
+                <input type="hidden" id="editItemParentId" name="editItemParentId"
                        value=<%=item.getParentId()%> required="required"/>
                 <button type="submit">Update</button>
             </form>

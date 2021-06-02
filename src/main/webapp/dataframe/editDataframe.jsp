@@ -14,7 +14,7 @@
     </ul>
 </div>
 <div class="main">
-    <form id="updateDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="post">
+    <form id="editDataframeForm" action="${pageContext.request.contextPath}/dataframe/edit" method="post">
         <input type="hidden" id="dataframeId" name="dataframeId"
                value=<%=request.getAttribute("dataframeId")%> required="required"/>
         <label for="label">label:</label><br>

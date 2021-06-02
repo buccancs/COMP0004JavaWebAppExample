@@ -19,7 +19,7 @@
     List<Dataframe> dataframes = (List<Dataframe>) request.getAttribute("dataframes");
 %>
 <div>
-    <form id="updateItemForm" action="${pageContext.request.contextPath}/item/update" method="post">
+    <form id="editItemForm" action="${pageContext.request.contextPath}/item/edit" method="post">
 
         <label for="newParentId">Choose your dataframe to assign to:</label><br>
         <select name="newParentId" id="newParentId">
@@ -34,9 +34,9 @@
         </select><br>
 
         <input type="hidden" id="itemId" name="itemId"
-               value=<%=request.getAttribute("updateItemId")%> required="required"/>
+               value=<%=request.getAttribute("editItemId")%> required="required"/>
         <input type="hidden" id="parentId" name="parentId"
-               value=<%=request.getAttribute("updateItemParentId")%> required="required"/>
+               value=<%=request.getAttribute("editItemParentId")%> required="required"/>
         <label for="label">label:</label><br>
         <input type="text" id="label" name="label" required="required"/><br>
         <label for="description">description:</label><br>

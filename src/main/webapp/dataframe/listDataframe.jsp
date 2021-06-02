@@ -46,8 +46,8 @@
             </form>
         </td>
         <td>
-            <form id="updateDataframeForm" action="${pageContext.request.contextPath}/dataframe/update" method="get">
-                <input type="hidden" id="updateDataframeId" name="updateDataframeId"
+            <form id="editDataframeForm" action="${pageContext.request.contextPath}/dataframe/edit" method="get">
+                <input type="hidden" id="editDataframeId" name="editDataframeId"
                        value=<%=dataframe.getDataframeId()%> required="required"/>
                 <button type="submit">Update</button>
             </form>

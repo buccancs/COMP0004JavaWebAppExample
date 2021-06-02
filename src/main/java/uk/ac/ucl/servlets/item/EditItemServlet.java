@@ -12,26 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UpdateItemServlet", urlPatterns = {"/item/update"})
-public class UpdateItemServlet extends HttpServlet {
+@WebServlet(name = "EditItemServlet", urlPatterns = {"/item/edit"})
+public class EditItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Model model = ModelFactory.getModel();
-        int updateItemId = Integer.parseInt(request.getParameter("updateItemId"));
-        int updateItemParentId = Integer.parseInt(request.getParameter("updateItemParentId"));
+        int editItemId = Integer.parseInt(request.getParameter("editItemId"));
+        int editItemParentId = Integer.parseInt(request.getParameter("editItemParentId"));
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
-            request.setAttribute("updateItemId", updateItemId);
-            request.setAttribute("updateItemParentId", updateItemParentId);
+            request.setAttribute("editItemId", editItemId);
+            request.setAttribute("editItemParentId", editItemParentId);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("updateItem.jsp").forward(request, response);
+        request.getRequestDispatcher("editItem.jsp").forward(request, response);
 
     }
 

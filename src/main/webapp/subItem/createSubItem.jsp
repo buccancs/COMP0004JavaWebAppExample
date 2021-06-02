@@ -22,8 +22,8 @@
 <div>
     <form id="createItemForm" action="${pageContext.request.contextPath}/subItem/new" method="post">
 
-        <label for="parentDataframeId">Choose your item to assign to:</label><br>
-        <select name="parentDataframeId" id="parentDataframeId">
+        <label for="parentItemId">Choose your item to assign to:</label><br>
+        <select name="parentItemId" id="parentItemId">
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
@@ -36,6 +36,16 @@
                 }
             %>
             </optgroup>
+            <%
+                }
+            %>
+        </select><br>
+        <label for="parentDataframeId">Choose your parent DF of your selected Item:</label><br>
+        <select name="parentDataframeId" id="parentDataframeId">
+            <%
+                for (Dataframe dataframe : dataframes) {
+            %>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
             <%
                 }
             %>

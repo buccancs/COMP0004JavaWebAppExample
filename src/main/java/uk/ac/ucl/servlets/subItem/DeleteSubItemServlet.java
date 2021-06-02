@@ -20,13 +20,13 @@ public class DeleteSubItemServlet extends HttpServlet {
 
         Model model = ModelFactory.getModel();
 
-        int updateSubItemId = Integer.parseInt(request.getParameter("deleteSubItemId"));
-        int updateParentItemId = Integer.parseInt(request.getParameter("deleteParentItemId"));
-        int updateParentDataframeId = Integer.parseInt(request.getParameter("deleteParentDataframeId"));
+        int editSubItemId = Integer.parseInt(request.getParameter("deleteSubItemId"));
+        int editParentItemId = Integer.parseInt(request.getParameter("deleteParentItemId"));
+        int editParentDataframeId = Integer.parseInt(request.getParameter("deleteParentDataframeId"));
 
         try {
-            model.getDataframeById(updateParentDataframeId).getItemById(updateParentItemId).removeSubItem(updateSubItemId);
-            List<SubItem> subItems = model.getDataframeById(updateParentDataframeId).getItemById(updateParentItemId).getSubItems();
+            model.getDataframeById(editParentDataframeId).getItemById(editParentItemId).removeSubItem(editSubItemId);
+            List<SubItem> subItems = model.getDataframeById(editParentDataframeId).getItemById(editParentItemId).getSubItems();
             request.setAttribute("subItems", subItems);
             request.getRequestDispatcher("/subItems").forward(request, response);
         } catch (Exception e) {

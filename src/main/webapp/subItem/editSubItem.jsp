@@ -21,7 +21,7 @@
     </ul>
 </div>
 <div class="main">
-    <form id="updateSubItemForm" action="${pageContext.request.contextPath}/subItem/update" method="post">
+    <form id="editSubItemForm" action="${pageContext.request.contextPath}/subItem/edit" method="post">
         <input type="hidden" id="dataId" name="dataId" value=<%=dataId%> required="required"/><br>
         <input type="hidden" id="parentItemId" name="parentItemId" value=<%=parentItemId%> required="required"/><br>
         <input type="hidden" id="parentDataframeId" name="parentDataframeId"

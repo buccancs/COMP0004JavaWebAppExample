@@ -1,5 +1,5 @@
-itemId, parentId,label, description, group
-690, 6901, dummy item1, description of dummy item1, dummy group1
-1234, 6901, a, asd, asdasd
-1, 6901, 1, 1, 1
-1, 123, 1, 1, 1
+itemId,parentId,label,description,group
+690,6901,dummyitem1,descriptionofdummyitem1,dummygroup1
+1234,6901,a,asd,asdasd
+1,6901,1,1,1
+1,123,1,1,1

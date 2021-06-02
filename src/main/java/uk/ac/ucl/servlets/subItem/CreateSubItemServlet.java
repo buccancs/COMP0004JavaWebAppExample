@@ -44,14 +44,6 @@ public class CreateSubItemServlet extends HttpServlet {
 
         try {
             SubItem subItem = SubItem.create(dataId, parentItemID, parentDataframeId, dataType, data);
-            if (model.getDataframeIds().contains(parentDataframeId)){
-                if (model.getDataframeById(parentDataframeId).getItemIdList().contains(parentItemID)){
-                    model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
-                }
-                else{
-
-                }
-            }
             model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
             List<SubItem> subItems = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getSubItems();
             request.setAttribute("subItems", subItems);
