@@ -4,6 +4,11 @@
     <title>Error</title>
 </head>
 <body>
+<div>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/">Return</a></li>
+    </ul>
+</div>
 <h2>An error occurred!</h2>
 <div>
     <p>
