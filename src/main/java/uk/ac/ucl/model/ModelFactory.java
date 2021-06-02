@@ -1,5 +1,8 @@
 package uk.ac.ucl.model;
 
+import uk.ac.ucl.utilities.ReadModel;
+import uk.ac.ucl.utilities.SaveModel;
+
 import java.io.IOException;
 
 // This class gives access to the model to any other class that needs it.
@@ -14,6 +17,11 @@ public class ModelFactory {
     public static Model getModel() throws IOException {
         if (model == null) {
             model = new Model();
+            try {
+                ReadModel.readAllElements(model);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             // Note where the .csv file is in the data directory, and the pathname to locate it.
             //model.readFile(new File("./data/patients.csv"));
             //model.createDummyModel();

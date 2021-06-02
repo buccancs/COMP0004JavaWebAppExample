@@ -3,6 +3,7 @@ package uk.ac.ucl.servlets.item;
 import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
+import uk.ac.ucl.utilities.SaveModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +25,7 @@ public class ListItemServlet extends HttpServlet {
         try {
             List<Item> items = model.getDataframeById(dataframeId).getItems();
             request.setAttribute("items", items);
-            model.saveFileItem();
+            SaveModel.saveItems(model);
             request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,7 +40,7 @@ public class ListItemServlet extends HttpServlet {
 
         try {
             request.getAttribute("items");
-            model.saveFileItem();
+            SaveModel.saveItems(model);
             request.getRequestDispatcher("item/listItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

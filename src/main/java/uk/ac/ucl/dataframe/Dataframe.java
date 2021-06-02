@@ -88,8 +88,22 @@ public class Dataframe {
                     return item;
                 }
             }
-            throw new Exception("Item with this ID does not exist.");
+            throw new Exception("Item with this ID does not exist. Id:" + itemId);
         }
+    }
+
+    public List<Integer> getItemIdList() throws Exception {
+        List<Integer> getItemIdList = new ArrayList<Integer>();
+
+        if (this.getItems() == null) {
+            throw new Exception("List of dataframes is empty.");
+        }
+        else{
+                for (Item item : this.getItems()) {
+                    getItemIdList.add(item.getItemId());
+                }
+                return getItemIdList;
+            }
     }
 
     public void removeItem(int itemId) {
@@ -98,7 +112,7 @@ public class Dataframe {
 
     @Override
     public String toString() {
-        return dataframeId + ", " + label + ", " + description + "\n";
+        return dataframeId + "," + label + "," + description + "\n";
     }
 
 }

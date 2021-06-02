@@ -34,6 +34,7 @@ public class CreateDataframeServlet extends HttpServlet {
 
         try {
             model.addDataframe(newDataframe);
+            request.setAttribute("dataframes", model.getListDataframe());
             request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

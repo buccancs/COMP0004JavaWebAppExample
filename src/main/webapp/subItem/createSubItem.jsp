@@ -12,37 +12,31 @@
 <div>
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/dataElement/new">Create New DataElement</a></li>
-        <li><a href="${pageContext.request.contextPath}/dataElement/search">Search in all Dataframes</a></li>
+        <li><a href="${pageContext.request.contextPath}/subItem/new">Create New SubItem</a></li>
+        <li><a href="${pageContext.request.contextPath}/subItem/search">Search in all Dataframes</a></li>
     </ul>
 </div>
 <%
     List<Dataframe> dataframes = (List<Dataframe>) request.getAttribute("dataframes");
 %>
 <div>
-    <form id="createItemForm" action="${pageContext.request.contextPath}/dataElement/new" method="post">
+    <form id="createItemForm" action="${pageContext.request.contextPath}/subItem/new" method="post">
 
-        <label for="parentDataframeId">Choose your dataframe to assign to:</label><br>
+        <label for="parentDataframeId">Choose your item to assign to:</label><br>
         <select name="parentDataframeId" id="parentDataframeId">
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
-            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%>
-            </option>
+            <optgroup label="DataframeId: <%=dataframe.getDataframeId()%>">
+            <%
+                for (Item item : dataframe.getItems()){
+            %>
+                <option value=<%=item.getItemId()%>><%=item.getItemId()%></option>
             <%
                 }
             %>
-        </select><br>
-        <label for="parentItemId">Choose your item to assign to:</label><br>
-        <select name="parentItemId" id="parentItemId">
+            </optgroup>
             <%
-                for (Dataframe dataframe : dataframes) {
-                    for (Item item : dataframe.getItems()) {
-            %>
-            <option value=<%=item.getItemId()%>><%=item.getItemId()%>
-            </option>
-            <%
-                    }
                 }
             %>
         </select><br>

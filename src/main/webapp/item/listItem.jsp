@@ -20,7 +20,7 @@
         <td>ParentID</td>
         <td>Label</td>
         <td>Description</td>
-        <td>DataElements</td>
+        <td>SubItems</td>
         <td>Action/Update</td>
         <td>Action/Delete</td>
     </tr>
@@ -44,7 +44,7 @@
         <td><%=item.getDescription()%>
         </td>
         <td>
-            <form id="requestItemsForm" action="${pageContext.request.contextPath}/dataElements" method="get">
+            <form id="requestItemsForm" action="${pageContext.request.contextPath}/subItems" method="get">
                 <input type="hidden" id="parentItemId" name="parentItemId"
                        value=<%=item.getItemId()%> required="required"/>
                 <input type="hidden" id="parentDataframeId" name="parentDataframeId"

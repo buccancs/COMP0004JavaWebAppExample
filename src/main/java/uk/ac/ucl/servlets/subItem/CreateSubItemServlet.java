@@ -1,6 +1,6 @@
-package uk.ac.ucl.servlets.dataElement;
+package uk.ac.ucl.servlets.subItem;
 
-import uk.ac.ucl.dataframe.DataElement;
+import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CreateDataElementServlet", urlPatterns = {"/dataElement/new"})
-public class CreateDataElementServlet extends HttpServlet {
+@WebServlet(name = "CreateSubItemServlet", urlPatterns = {"/subItem/new"})
+public class CreateSubItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class CreateDataElementServlet extends HttpServlet {
         try {
             List<Dataframe> dataframes = model.getListDataframe();
             request.setAttribute("dataframes", dataframes);
-            request.getRequestDispatcher("createDataElement.jsp").forward(request, response);
+            request.getRequestDispatcher("createSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
@@ -43,11 +43,19 @@ public class CreateDataElementServlet extends HttpServlet {
         String data = request.getParameter("data");
 
         try {
-            DataElement dataElement = DataElement.create(dataId, parentItemID, parentDataframeId, dataType, data);
-            model.getDataframeById(parentDataframeId).getItemById(parentItemID).addDataElement(dataElement);
-            List<DataElement> dataElements = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getDataElements();
-            request.setAttribute("dataElements", dataElements);
-            request.getRequestDispatcher("/dataElements").forward(request, response);
+            SubItem subItem = SubItem.create(dataId, parentItemID, parentDataframeId, dataType, data);
+            if (model.getDataframeIds().contains(parentDataframeId)){
+                if (model.getDataframeById(parentDataframeId).getItemIdList().contains(parentItemID)){
+                    model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
+                }
+                else{
+
+                }
+            }
+            model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
+            List<SubItem> subItems = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getSubItems();
+            request.setAttribute("subItems", subItems);
+            request.getRequestDispatcher("/subItems").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);

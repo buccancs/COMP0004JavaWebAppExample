@@ -1,6 +1,6 @@
-package uk.ac.ucl.servlets.dataElement;
+package uk.ac.ucl.servlets.subItem;
 
-import uk.ac.ucl.dataframe.DataElement;
+import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.dataframe.Dataframe;
 import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
@@ -16,13 +16,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "SearchDataElementServlet", urlPatterns = {"/dataElement/search"})
-public class SearchDataElementServlet extends HttpServlet {
+@WebServlet(name = "SearchSubItemServlet", urlPatterns = {"/subItem/search"})
+public class SearchSubItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("searchDataElement.jsp").forward(request, response);
+        request.getRequestDispatcher("searchSubItem.jsp").forward(request, response);
     }
 
     @Override
@@ -31,18 +31,18 @@ public class SearchDataElementServlet extends HttpServlet {
         Model model = ModelFactory.getModel();
 
         String searchTerm = request.getParameter("searchTerm");
-        List<DataElement> allMatchingItems = new ArrayList<DataElement>();
+        List<SubItem> allMatchingItems = new ArrayList<SubItem>();
 
         for (Dataframe dataframe: model.getListDataframe()){
             for (Item item : dataframe.getItems()){
-                for (DataElement dataElement : item.getDataElements()){
-                    if (dataElement.getDataType().equals(searchTerm)) {
-                        allMatchingItems.add(dataElement);
+                for (SubItem subItem : item.getSubItems()){
+                    if (subItem.getDataType().equals(searchTerm)) {
+                        allMatchingItems.add(subItem);
                     }
                 }
             }
         }
-        request.setAttribute("dataElements", allMatchingItems);
-        request.getRequestDispatcher("/dataElements").forward(request, response);
+        request.setAttribute("subItems", allMatchingItems);
+        request.getRequestDispatcher("/subItems").forward(request, response);
     }
 }

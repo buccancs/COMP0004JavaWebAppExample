@@ -1,21 +1,21 @@
 package uk.ac.ucl.dataframe;
 
-public class DataElement {
+public class SubItem {
     private int dataId;
     private int parentItemId;
     private int parentDataframeId;
     private String dataType;
     private String data;
 
-    public static DataElement create(int dataId, int parentItemId, int parentDataframeId, String dataType, String data) {
-        DataElement dataElement = new DataElement();
-        dataElement.setDataId(dataId);
-        dataElement.setParentItemId(parentItemId);
-        dataElement.setParentDataframeId(parentDataframeId);
-        dataElement.setDataType(dataType);
-        dataElement.setData(data);
+    public static SubItem create(int dataId, int parentItemId, int parentDataframeId, String dataType, String data) {
+        SubItem subItem = new SubItem();
+        subItem.setDataId(dataId);
+        subItem.setParentItemId(parentItemId);
+        subItem.setParentDataframeId(parentDataframeId);
+        subItem.setDataType(dataType);
+        subItem.setData(data);
 
-        return dataElement;
+        return subItem;
     }
 
     public void update(String data) {
@@ -64,6 +64,6 @@ public class DataElement {
 
     @Override
     public String toString() {
-        return dataId + ", " + parentItemId + ", " + parentDataframeId + ", " + dataType + ", " + data + "\n";
+        return dataId + "," + parentItemId + "," + parentDataframeId + "," + dataType + "," + data + "\n";
     }
 }

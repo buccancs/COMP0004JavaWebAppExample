@@ -2,6 +2,7 @@ package uk.ac.ucl.servlets.dataframe;
 
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
+import uk.ac.ucl.utilities.SaveModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,7 @@ public class ListDataframeServlet extends HttpServlet {
 
         try {
             request.setAttribute("dataframes", model.getListDataframe());
-            model.saveFileDataframe();
+            SaveModel.saveDataframes(model);
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -35,7 +36,7 @@ public class ListDataframeServlet extends HttpServlet {
 
         try {
             request.getAttribute("dataframes");
-            model.saveFileDataframe();
+            SaveModel.saveDataframes(model);
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

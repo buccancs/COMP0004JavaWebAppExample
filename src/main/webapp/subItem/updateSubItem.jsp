@@ -1,4 +1,4 @@
-<%@ page import="uk.ac.ucl.dataframe.DataElement" %>
+<%@ page import="uk.ac.ucl.dataframe.SubItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.*" %>
 
@@ -16,12 +16,12 @@
 <div>
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/dataElement/new">Create New DataElement</a></li>
-        <li><a href="${pageContext.request.contextPath}/dataElement/search">Search in all Dataframes</a></li>
+        <li><a href="${pageContext.request.contextPath}/subItem/new">Create New SubItem</a></li>
+        <li><a href="${pageContext.request.contextPath}/subItem/search">Search in all Dataframes</a></li>
     </ul>
 </div>
 <div class="main">
-    <form id="updateDataElementForm" action="${pageContext.request.contextPath}/dataElement/update" method="post">
+    <form id="updateSubItemForm" action="${pageContext.request.contextPath}/subItem/update" method="post">
         <input type="hidden" id="dataId" name="dataId" value=<%=dataId%> required="required"/><br>
         <input type="hidden" id="parentItemId" name="parentItemId" value=<%=parentItemId%> required="required"/><br>
         <input type="hidden" id="parentDataframeId" name="parentDataframeId"

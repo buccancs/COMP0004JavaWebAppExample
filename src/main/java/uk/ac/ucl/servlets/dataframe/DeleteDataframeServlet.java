@@ -22,6 +22,7 @@ public class DeleteDataframeServlet extends HttpServlet {
 
         try {
             model.removeDataframeById(dataframeId);
+            request.setAttribute("dataframes", model.getListDataframe());
             request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

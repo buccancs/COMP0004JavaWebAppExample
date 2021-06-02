@@ -1,8 +1,9 @@
-package uk.ac.ucl.servlets.dataElement;
+package uk.ac.ucl.servlets.subItem;
 
-import uk.ac.ucl.dataframe.DataElement;
+import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
+import uk.ac.ucl.utilities.SaveModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListDataElementServlet", urlPatterns = {"/dataElements"})
-public class ListDataElementServlet extends HttpServlet {
+@WebServlet(name = "ListSubItemServlet", urlPatterns = {"/subItems"})
+public class ListSubItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,10 +24,10 @@ public class ListDataElementServlet extends HttpServlet {
         int itemId = Integer.parseInt(request.getParameter("parentItemId"));
         int dataframeId = Integer.parseInt(request.getParameter("parentDataframeId"));
         try {
-            List<DataElement> dataElements = model.getDataframeById(dataframeId).getItemById(itemId).getDataElements();
-            request.setAttribute("dataElements", dataElements);
-            model.saveFileDataElement();
-            request.getRequestDispatcher("dataElement/listDataElement.jsp").forward(request, response);
+            List<SubItem> subItems = model.getDataframeById(dataframeId).getItemById(itemId).getSubItems();
+            request.setAttribute("subItems", subItems);
+            SaveModel.saveSubItems(model);
+            request.getRequestDispatcher("subItem/listSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);
@@ -39,9 +40,9 @@ public class ListDataElementServlet extends HttpServlet {
         Model model = ModelFactory.getModel();
 
         try {
-            request.getAttribute("dataElements");
-            model.saveFileDataElement();
-            request.getRequestDispatcher("dataElement/listDataElement.jsp").forward(request, response);
+            request.getAttribute("subItems");
+            SaveModel.saveSubItems(model);
+            request.getRequestDispatcher("subItem/listSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.getRequestDispatcher("/error.jsp").forward(request, response);

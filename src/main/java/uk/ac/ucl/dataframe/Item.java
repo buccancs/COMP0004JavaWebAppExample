@@ -10,7 +10,7 @@ public class Item {
     private String description;
     private String group;
 //    private List<String> tags;
-    private List<DataElement> dataElements;
+    private List<SubItem> subItems;
 
     public static Item createAsItem(int itemId, int parentId, String label, String description, String group) {
         Item item = new Item();
@@ -19,7 +19,7 @@ public class Item {
         item.setLabel(label);
         item.setDescription(description);
         item.setGroup(group);
-        item.setDataElements(new ArrayList<DataElement>());
+        item.setSubItems(new ArrayList<SubItem>());
 
         return item;
     }
@@ -78,57 +78,57 @@ public class Item {
 //        tags.remove(tag);
 //    }
 
-    public void addDataElement(DataElement dataElement) {
-        this.dataElements.add(dataElement);
+    public void addSubItem(SubItem subItem) {
+        this.subItems.add(subItem);
     }
 
-    public void addDataElement(int dataId, int parentItemId, int parentDataframeId, String dataLabel, String data) {
-        this.dataElements.add(DataElement.create(dataId, parentItemId, parentDataframeId, dataLabel, data));
+    public void addSubItem(int dataId, int parentItemId, int parentDataframeId, String dataLabel, String data) {
+        this.subItems.add(SubItem.create(dataId, parentItemId, parentDataframeId, dataLabel, data));
     }
 
-    public List<DataElement> getDataElements() {
-        if (this.dataElements == null) {
-            setDataElements(new ArrayList<DataElement>());
+    public List<SubItem> getSubItems() {
+        if (this.subItems == null) {
+            setSubItems(new ArrayList<SubItem>());
         }
-        return dataElements;
+        return subItems;
     }
 
-    public void setDataElements(List<DataElement> dataElements) {
-        this.dataElements = dataElements;
+    public void setSubItems(List<SubItem> subItems) {
+        this.subItems = subItems;
     }
 
-    public DataElement getDataElementById(int dataId) throws Exception {
-        if (this.dataElements == null) {
-            throw new Exception("List of data elements is empty.");
+    public SubItem getSubItemById(int dataId) throws Exception {
+        if (this.subItems == null) {
+            throw new Exception("List of sub items is empty.");
         } else {
-            for (DataElement dataElement : this.dataElements) {
-                if (dataElement.getDataId() == dataId) {
-                    return dataElement;
+            for (SubItem subItem : this.subItems) {
+                if (subItem.getDataId() == dataId) {
+                    return subItem;
                 }
             }
-            throw new Exception("DataElement with this ID does not exist.");
+            throw new Exception("SubItem with this ID does not exist.");
         }
     }
 
-    public void removeDataElement(int dataId) {
-        getDataElements().removeIf(dataElement -> dataElement.getDataId() == dataId);
+    public void removeSubItem(int dataId) {
+        getSubItems().removeIf(subItem -> subItem.getDataId() == dataId);
     }
 
 
-//    public List<DataElement> getDataElements() {
-//        if (this.dataElement == null) {
-//            setDataElement(new ArrayList<DataElement>());
+//    public List<SubItem> getSubItems() {
+//        if (this.subItem == null) {
+//            setSubItem(new ArrayList<SubItem>());
 //        }
-//        return dataElement;
+//        return subItem;
 //    }
 //
-//    public void addDataElement(int dataId, String dataLabel, String data){
-//        DataElement dataElement = DataElement.create(dataId, dataLabel, data);
+//    public void addSubItem(int dataId, String dataLabel, String data){
+//        SubItem subItem = SubItem.create(dataId, dataLabel, data);
 //
 //    }
 
     @Override
     public String toString() {
-        return itemId + ", " + parentId + ", " + label + ", " + description + ", " + group + "\n";
+        return itemId + "," + parentId + "," + label + "," + description + "," + group + "\n";
     }
 }

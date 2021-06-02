@@ -15,7 +15,7 @@
 </div>
 <div>
     <form id="searchItemForm" action="${pageContext.request.contextPath}/item/search" method="post">
-        <label for="searchTerm">searchTerm:</label><br>
+        <label for="searchTerm">Search in Items:</label><br>
         <input type="text" id="searchTerm" name="searchTerm" required="required"/><br>
             <button type="submit">Search</button>
             <button type="button" onclick="history.go(-1)">Cancel</button>
