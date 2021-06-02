@@ -110,6 +110,20 @@ public class Item {
         }
     }
 
+    public List<Integer> getSubItemIds() throws Exception {
+        List<Integer> getSubItemIdList = new ArrayList<Integer>();
+
+        if (this.getSubItems() == null) {
+            throw new Exception("List subItems is empty.");
+        }
+        else{
+            for (SubItem subItem : this.getSubItems()) {
+                getSubItemIdList.add(subItem.getDataId());
+            }
+            return getSubItemIdList;
+        }
+    }
+
     public void removeSubItem(int dataId) {
         getSubItems().removeIf(subItem -> subItem.getDataId() == dataId);
     }

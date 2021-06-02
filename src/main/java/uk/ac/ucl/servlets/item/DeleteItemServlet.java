@@ -30,6 +30,7 @@ public class DeleteItemServlet extends HttpServlet {
             request.getRequestDispatcher("/items").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

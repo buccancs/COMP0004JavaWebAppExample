@@ -1,7 +1,7 @@
 package uk.ac.ucl.servlets.subItem;
 
-import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.dataframe.Dataframe;
+import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
 
@@ -27,6 +27,7 @@ public class CreateSubItemServlet extends HttpServlet {
             request.getRequestDispatcher("createSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -43,13 +44,21 @@ public class CreateSubItemServlet extends HttpServlet {
         String data = request.getParameter("data");
 
         try {
-            SubItem subItem = SubItem.create(dataId, parentItemID, parentDataframeId, dataType, data);
-            model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
-            List<SubItem> subItems = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getSubItems();
-            request.setAttribute("subItems", subItems);
-            request.getRequestDispatcher("/subItems").forward(request, response);
+            if (! model.getDataframeById(parentDataframeId).getItemById(parentItemID).getSubItemIds().contains(dataId)) {
+                SubItem subItem = SubItem.create(dataId, parentItemID, parentDataframeId, dataType, data);
+                model.getDataframeById(parentDataframeId).getItemById(parentItemID).addSubItem(subItem);
+
+                List<SubItem> subItems = model.getDataframeById(parentDataframeId).getItemById(parentItemID).getSubItems();
+                request.setAttribute("subItems", subItems);
+                request.getRequestDispatcher("/subItems").forward(request, response);
+            }
+            else{
+                request.setAttribute("e", "SubItem with this ID already exists in this Item!");
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

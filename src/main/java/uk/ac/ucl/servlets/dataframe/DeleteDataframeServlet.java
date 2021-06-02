@@ -26,6 +26,7 @@ public class DeleteDataframeServlet extends HttpServlet {
             request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

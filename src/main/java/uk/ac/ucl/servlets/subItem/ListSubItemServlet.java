@@ -30,6 +30,7 @@ public class ListSubItemServlet extends HttpServlet {
             request.getRequestDispatcher("subItem/listSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -45,6 +46,7 @@ public class ListSubItemServlet extends HttpServlet {
             request.getRequestDispatcher("subItem/listSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

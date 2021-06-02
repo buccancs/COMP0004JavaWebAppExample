@@ -1,16 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Duy An Tran
-  Date: 6/1/2021
-  Time: 7:08 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error</title>
 </head>
 <body>
-
+<h2>An error occurred!</h2>
+<div>
+    <p>
+        <%
+            String e = (String) request.getAttribute("e");
+            System.out.println(e);
+        %>
+        <%=e%>
+    </p>
+</div>
 </body>
 </html>

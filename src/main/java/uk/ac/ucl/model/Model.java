@@ -1,26 +1,16 @@
 package uk.ac.ucl.model;
 
-import uk.ac.ucl.dataframe.SubItem;
 import uk.ac.ucl.dataframe.Dataframe;
-import uk.ac.ucl.dataframe.Item;
-import uk.ac.ucl.utilities.ReadModel;
-import uk.ac.ucl.utilities.SaveModel;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
-    // The example code in this class should be replaced by your Model class code.
-    // The data should be stored in a DataFrame.
-    // private DataFrame frame = ...
-
 
     private List<Dataframe> dataframes;
 
     public Model() {
         this.setListDataframe(new ArrayList<Dataframe>());
-//        createDummyModel();
     }
 
 
@@ -49,10 +39,6 @@ public class Model {
     public List<Dataframe> getListDataframe() {
         return dataframes;
     }
-
-//    public void setListDataframe() {
-//        this.listDataframe = ReadFromFile();
-//    }
 
     public void setListDataframe(List<Dataframe> listDataframe) {
         this.dataframes = listDataframe;
@@ -100,22 +86,4 @@ public class Model {
     public void removeDataframeById(int dataframeId) {
         this.getListDataframe().removeIf(dataframe -> dataframe.getDataframeId() == dataframeId);
     }
-
-    public void createDummyModel() {
-        Item dummyItem1 = Item.createAsItem(690, 6901, "dummy item1", "description of dummy item1", "dummy group1");
-        Item dummyItem2 = Item.createAsItem(700, 7001, "dummy item2", "description of dummy item2", "dummy group2");
-        dummyItem1.addSubItem(69, 690, 6901, "URL", "www.google.hu");
-        dummyItem2.addSubItem(70, 700, 7001, "URL", "www.google.com");
-        Dataframe dummyDataframe1 = Dataframe.create(6901, "dummy dataframe1", "description dummy dataframe1");
-        Dataframe dummyDataframe2 = Dataframe.create(7001, "dummy dataframe2", "description dummy dataframe2");
-        dummyDataframe1.addItem(dummyItem1);
-        dummyDataframe2.addItem(dummyItem2);
-        this.dataframes.add(dummyDataframe1);
-        this.dataframes.add(dummyDataframe2);
-    }
-
-    public void readFile() throws IOException {
-        // Read a patient .csv data file and create the DataFrame.
-    }
-
 }

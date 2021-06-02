@@ -27,6 +27,7 @@ public class CreateItemServlet extends HttpServlet {
             request.getRequestDispatcher("createItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -43,13 +44,21 @@ public class CreateItemServlet extends HttpServlet {
         String group = request.getParameter("group");
 
         try {
-            Item item = Item.createAsItem(itemId, parentId, label, description, group);
-            model.getDataframeById(parentId).addItem(item);
-            List<Item> items = model.getDataframeById(parentId).getItems();
-            request.setAttribute("items", items);
-            request.getRequestDispatcher("/items").forward(request, response);
+            if (!model.getDataframeById(parentId).getItemIds().contains(itemId)) {
+                Item item = Item.createAsItem(itemId, parentId, label, description, group);
+                model.getDataframeById(parentId).addItem(item);
+
+                List<Item> items = model.getDataframeById(parentId).getItems();
+                request.setAttribute("items", items);
+                request.getRequestDispatcher("/items").forward(request, response);
+            }
+            else{
+                request.setAttribute("e", "Item with this ID already exists in this dataframe!");
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

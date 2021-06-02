@@ -26,6 +26,7 @@ public class EditDataframeServlet extends HttpServlet {
             request.getRequestDispatcher("editDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -47,6 +48,7 @@ public class EditDataframeServlet extends HttpServlet {
             request.getRequestDispatcher("/dataframes").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

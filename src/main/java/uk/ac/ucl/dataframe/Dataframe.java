@@ -92,11 +92,11 @@ public class Dataframe {
         }
     }
 
-    public List<Integer> getItemIdList() throws Exception {
+    public List<Integer> getItemIds() throws Exception {
         List<Integer> getItemIdList = new ArrayList<Integer>();
 
         if (this.getItems() == null) {
-            throw new Exception("List of dataframes is empty.");
+            throw new Exception("List of items is empty.");
         }
         else{
                 for (Item item : this.getItems()) {

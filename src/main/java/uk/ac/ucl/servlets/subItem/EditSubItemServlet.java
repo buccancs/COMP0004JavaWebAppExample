@@ -30,6 +30,7 @@ public class EditSubItemServlet extends HttpServlet {
             request.getRequestDispatcher("editSubItem.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -53,6 +54,7 @@ public class EditSubItemServlet extends HttpServlet {
             request.getRequestDispatcher("/subItems").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

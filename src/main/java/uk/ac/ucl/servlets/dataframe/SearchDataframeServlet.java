@@ -1,7 +1,6 @@
 package uk.ac.ucl.servlets.dataframe;
 
 import uk.ac.ucl.dataframe.Dataframe;
-import uk.ac.ucl.dataframe.Item;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
 
@@ -10,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

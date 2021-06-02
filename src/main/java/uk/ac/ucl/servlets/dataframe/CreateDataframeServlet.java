@@ -30,15 +30,25 @@ public class CreateDataframeServlet extends HttpServlet {
         String label = request.getParameter("label");
         String description = request.getParameter("description");
 
-        Dataframe newDataframe = Dataframe.create(dataframeId, label, description);
 
         try {
-            model.addDataframe(newDataframe);
-            request.setAttribute("dataframes", model.getListDataframe());
-            request.getRequestDispatcher("/dataframes").forward(request, response);
-        } catch (Exception e) {
+            if (!model.getDataframeIds().contains(dataframeId)) {
+                Dataframe newDataframe = Dataframe.create(dataframeId, label, description);
+
+                model.addDataframe(newDataframe);
+                request.setAttribute("dataframes", model.getListDataframe());
+                request.getRequestDispatcher("/dataframes").forward(request, response);
+
+            }
+            else{
+                request.setAttribute("e", "Dataframe with this ID already exists!");
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
+        }
+        catch (Exception e) {
             e.printStackTrace();
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            request.setAttribute("e", e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 }

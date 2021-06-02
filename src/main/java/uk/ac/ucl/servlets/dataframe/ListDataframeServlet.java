@@ -25,6 +25,7 @@ public class ListDataframeServlet extends HttpServlet {
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -40,6 +41,7 @@ public class ListDataframeServlet extends HttpServlet {
             request.getRequestDispatcher("dataframe/listDataframe.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }

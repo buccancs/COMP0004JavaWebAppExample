@@ -1,7 +1,6 @@
 package uk.ac.ucl.model;
 
 import uk.ac.ucl.utilities.ReadModel;
-import uk.ac.ucl.utilities.SaveModel;
 
 import java.io.IOException;
 

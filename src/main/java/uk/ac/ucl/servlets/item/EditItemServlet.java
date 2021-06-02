@@ -28,6 +28,7 @@ public class EditItemServlet extends HttpServlet {
             request.setAttribute("editItemParentId", editItemParentId);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
 
@@ -63,6 +64,7 @@ public class EditItemServlet extends HttpServlet {
             request.getRequestDispatcher("/items").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
