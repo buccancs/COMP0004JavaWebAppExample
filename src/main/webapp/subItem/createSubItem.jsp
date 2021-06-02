@@ -28,13 +28,14 @@
                 for (Dataframe dataframe : dataframes) {
             %>
             <optgroup label="DataframeId: <%=dataframe.getDataframeId()%>">
-            <%
-                for (Item item : dataframe.getItems()){
-            %>
-                <option value=<%=item.getItemId()%>><%=item.getItemId()%></option>
-            <%
-                }
-            %>
+                <%
+                    for (Item item : dataframe.getItems()) {
+                %>
+                <option value=<%=item.getItemId()%>><%=item.getItemId()%>
+                </option>
+                <%
+                    }
+                %>
             </optgroup>
             <%
                 }
@@ -45,7 +46,8 @@
             <%
                 for (Dataframe dataframe : dataframes) {
             %>
-            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%></option>
+            <option value=<%=dataframe.getDataframeId()%>><%=dataframe.getDataframeId()%>
+            </option>
             <%
                 }
             %>

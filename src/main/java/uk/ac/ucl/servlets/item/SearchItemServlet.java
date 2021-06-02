@@ -31,9 +31,9 @@ public class SearchItemServlet extends HttpServlet {
         String searchTerm = request.getParameter("searchTerm");
         List<Item> allMatchingItems = new ArrayList<Item>();
 
-        for (Dataframe dataframe: model.getListDataframe()){
-            for (Item item : dataframe.getItems()){
-                if (item.getLabel().equals(searchTerm)){
+        for (Dataframe dataframe : model.getListDataframe()) {
+            for (Item item : dataframe.getItems()) {
+                if (item.getLabel().equals(searchTerm)) {
                     allMatchingItems.add(item);
                 }
             }

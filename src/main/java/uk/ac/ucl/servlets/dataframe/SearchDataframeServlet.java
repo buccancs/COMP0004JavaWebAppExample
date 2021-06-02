@@ -30,7 +30,7 @@ public class SearchDataframeServlet extends HttpServlet {
         String searchTerm = request.getParameter("searchTerm");
         List<Dataframe> allMatchingItems = new ArrayList<Dataframe>();
 
-        for (Dataframe dataframe: model.getListDataframe()) {
+        for (Dataframe dataframe : model.getListDataframe()) {
             if (dataframe.getLabel().equals(searchTerm)) {
                 allMatchingItems.add(dataframe);
             }

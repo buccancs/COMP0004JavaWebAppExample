@@ -51,8 +51,7 @@ public class CreateItemServlet extends HttpServlet {
                 List<Item> items = model.getDataframeById(parentId).getItems();
                 request.setAttribute("items", items);
                 request.getRequestDispatcher("/items").forward(request, response);
-            }
-            else{
+            } else {
                 request.setAttribute("e", "Item with this ID already exists in this dataframe!");
                 request.getRequestDispatcher("/error.jsp").forward(request, response);
             }

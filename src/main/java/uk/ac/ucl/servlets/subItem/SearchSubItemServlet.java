@@ -32,9 +32,9 @@ public class SearchSubItemServlet extends HttpServlet {
         String searchTerm = request.getParameter("searchTerm");
         List<SubItem> allMatchingItems = new ArrayList<SubItem>();
 
-        for (Dataframe dataframe: model.getListDataframe()){
-            for (Item item : dataframe.getItems()){
-                for (SubItem subItem : item.getSubItems()){
+        for (Dataframe dataframe : model.getListDataframe()) {
+            for (Item item : dataframe.getItems()) {
+                for (SubItem subItem : item.getSubItems()) {
                     if (subItem.getDataType().equals(searchTerm)) {
                         allMatchingItems.add(subItem);
                     }

@@ -9,7 +9,7 @@ public class Item {
     private String label;
     private String description;
     private String group;
-//    private List<String> tags;
+    //    private List<String> tags;
     private List<SubItem> subItems;
 
     public static Item createAsItem(int itemId, int parentId, String label, String description, String group) {
@@ -101,8 +101,7 @@ public class Item {
 
         if (this.getSubItems() == null) {
             throw new Exception("List subItems is empty.");
-        }
-        else{
+        } else {
             for (SubItem subItem : this.getSubItems()) {
                 getSubItemIdList.add(subItem.getDataId());
             }

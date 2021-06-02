@@ -7,7 +7,7 @@ public class Dataframe {
     private int dataframeId;
     private String label;
     private String description;
-//    private List<String> tags;
+    //    private List<String> tags;
     private List<Item> items;
 
     public static Dataframe create(int dataFrameId, String label, String description) {
@@ -45,7 +45,7 @@ public class Dataframe {
         this.description = description;
     }
 
-//    public void setTags(List<String> tags) {
+    //    public void setTags(List<String> tags) {
 //        this.tags = tags;
 //    }
 //
@@ -97,13 +97,12 @@ public class Dataframe {
 
         if (this.getItems() == null) {
             throw new Exception("List of items is empty.");
-        }
-        else{
-                for (Item item : this.getItems()) {
-                    getItemIdList.add(item.getItemId());
-                }
-                return getItemIdList;
+        } else {
+            for (Item item : this.getItems()) {
+                getItemIdList.add(item.getItemId());
             }
+            return getItemIdList;
+        }
     }
 
     public void removeItem(int itemId) {

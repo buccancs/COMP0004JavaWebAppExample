@@ -39,13 +39,11 @@ public class CreateDataframeServlet extends HttpServlet {
                 request.setAttribute("dataframes", model.getListDataframe());
                 request.getRequestDispatcher("/dataframes").forward(request, response);
 
-            }
-            else{
+            } else {
                 request.setAttribute("e", "Dataframe with this ID already exists!");
                 request.getRequestDispatcher("/error.jsp").forward(request, response);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("e", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
