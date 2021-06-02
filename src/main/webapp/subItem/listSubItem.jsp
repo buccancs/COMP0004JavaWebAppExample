@@ -18,7 +18,7 @@
     <thead>
     <tr>
         <td>DataID</td>
-        <td>DataType</td>
+        <td>DataType/Label</td>
         <td>Data</td>
         <td>Action/Update</td>
         <td>Action/Delete</td>

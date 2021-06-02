@@ -49,7 +49,7 @@
                        value=<%=item.getItemId()%> required="required"/>
                 <input type="hidden" id="parentDataframeId" name="parentDataframeId"
                        value=<%=item.getParentId()%> required="required"/>
-                <button type="submit">Items</button>
+                <button type="submit">SubItems</button>
             </form>
         </td>
         <td>
