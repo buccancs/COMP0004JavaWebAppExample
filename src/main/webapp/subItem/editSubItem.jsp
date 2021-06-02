@@ -17,7 +17,7 @@
     <ul>
         <li><a href="${pageContext.request.contextPath}/dataframes">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/subItem/new">Create New SubItem</a></li>
-        <li><a href="${pageContext.request.contextPath}/subItem/search">Search in all Dataframes</a></li>
+        <li><a href="${pageContext.request.contextPath}/subItem/search">Search in all SubItems</a></li>
     </ul>
 </div>
 <div class="main">

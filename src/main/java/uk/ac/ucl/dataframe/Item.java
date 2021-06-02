@@ -64,20 +64,6 @@ public class Item {
         this.group = group;
     }
 
-//    public void setTags(List<String> tags) {
-//        this.tags = tags;
-//    }
-//
-//    public void addTag(String tag) {
-//        if (!tags.contains(tag)) {
-//            tags.add(tag);
-//        }
-//    }
-//
-//    public void removeTag(String tag) {
-//        tags.remove(tag);
-//    }
-
     public void addSubItem(SubItem subItem) {
         this.subItems.add(subItem);
     }
@@ -127,19 +113,6 @@ public class Item {
     public void removeSubItem(int dataId) {
         getSubItems().removeIf(subItem -> subItem.getDataId() == dataId);
     }
-
-
-//    public List<SubItem> getSubItems() {
-//        if (this.subItem == null) {
-//            setSubItem(new ArrayList<SubItem>());
-//        }
-//        return subItem;
-//    }
-//
-//    public void addSubItem(int dataId, String dataLabel, String data){
-//        SubItem subItem = SubItem.create(dataId, dataLabel, data);
-//
-//    }
 
     @Override
     public String toString() {
